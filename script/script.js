@@ -1,3 +1,14 @@
+function startGame() {
+    const introContainer = document.querySelector('.intro-container');
+    const gameContainer = document.getElementById('game-container');
+
+    introContainer.style.display = 'none';
+    gameContainer.style.display = 'block';
+
+    resetMarmotPosition();
+}
+// Rest of your existing code
+
 document.addEventListener('DOMContentLoaded', function () {
   const introContainer = document.querySelector('.intro-container');
   const gameContainer = document.getElementById('game-container');
@@ -49,4 +60,5 @@ document.addEventListener('DOMContentLoaded', function () {
     gameContainer.style.display = 'block';
     resetMarmotPosition();
   }
+
 });
