@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game-container {
+  position: relative;
+}
+
+.marmot {
+  width: 100px;
+  height: 100px;
+  background-color: #b87333;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+}
