@@ -6,8 +6,12 @@ body {
   margin: 0;
 }
 
+.intro-container {
+  text-align: center;
+}
+
 .game-container {
-  position: relative;
+  display: none;
 }
 
 .marmot {

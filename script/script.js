@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const introContainer = document.querySelector('.intro-container');
+  const gameContainer = document.getElementById('game-container');
   const marmot = document.getElementById('marmot');
 
   document.addEventListener('keydown', function (event) {
@@ -42,5 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
     marmot.style.top = `${newY}px`;
   }
 
-  resetMarmotPosition();
+  function startGame() {
+    introContainer.style.display = 'none';
+    gameContainer.style.display = 'block';
+    resetMarmotPosition();
+  }
 });
