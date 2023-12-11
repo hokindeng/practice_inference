@@ -8,10 +8,10 @@ const ctx = canvas.getContext('2d');
 
 const carImg = new Image();
 carImg.onload = drawInstructions;
-carImg.src = 'Images/car.svg';  // replace with the actual path to your car image
+carImg.src = 'Image/image1.svg';  // replace with the actual path to your car image
 const targetImg = new Image();
 targetImg.onload = drawInstructions;
-targetImg.src = 'Images/pizza.svg'; // replace with the URL of your target image
+targetImg.src = 'Image/image2.svg'; // replace with the URL of your target image
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
