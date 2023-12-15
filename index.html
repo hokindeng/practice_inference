@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/style.css">
-  <title>Hit the Marmot</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="intro-container">
-      <h1>Welcome to Hit the Marmot!</h1>
-      <p>Hit the marmot by pressing the 's', 'd', 'j', or 'k' keys when it appears in different quadrants of the screen.</p>
-      <button onclick="startGame()">Start Game</button>
+<audio src="./music/banc.mp3" class="music1"></audio>
+<audio src="./music/chui.mp3" class="music2"></audio>
+<audio src="./music/da.mp3" class="music3"></audio>
+<div class="con">
+    <div class="start_game">
+        <div class="start_des">
+            <h2>Welcome to Hit Marmot!</h2>
+            <p>Embark on a Whimsical Adventure!</p>
+            <br>
+            Get ready to dive into the fun-filled world of Hit Marmot! This delightful game is perfect for players of
+            all ages, offering a unique blend of excitement, strategy, and quick reflexes. As marmots pop up from their
+            holes, your task is to 'hit' them by pressing the corresponding keys 1 to 9 on your keyboard. But be quick!
+            These cheeky marmots won’t stay up for long.
+        </div>
+        <div class="start_btn">START GAME</div>
     </div>
+    <div class="game_con">
+        <div class="game6"><img src="image/img1.jpg"/></div>
+        <div class="game7"><img src="image/img1.jpg"/></div>
+        <div class="game8"><img src="image/img1.jpg"/></div>
 
-    <div id="game-container" class="game-container">
-      <div id="marmot" class="marmot"></div>
+        <div class="game3"><img src="image/img1.jpg"/></div>
+        <div class="game4"><img src="image/img1.jpg"/></div>
+        <div class="game5"><img src="image/img1.jpg"/></div>
+
+        <div class="game0"><img src="image/img1.jpg"/></div>
+        <div class="game1"><img src="image/img1.jpg"/></div>
+        <div class="game2"><img src="image/img1.jpg"/></div>
+        <div class="time">00 : 00</div>
+        <div class="score">10</div>
     </div>
-  </div>
-
-  <script src="script/script.js"></script>
+    <div class="end_game">
+        <div class="game_over">Game Over</div>
+        <div class="game_score">Score: <span class="game_score_number">00</span></div>
+        <div class="restart">RESTART</div>
+    </div>
+</div>
+<script src="game.js"></script>
 </body>
 </html>
