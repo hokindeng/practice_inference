@@ -73,8 +73,6 @@ function timerMouse() {
     }, 3000)
 }
 
-
-
 // 判断键盘事件
 function keyboard() {
     document.onkeydown = function (e) {
