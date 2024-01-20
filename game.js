@@ -38,11 +38,9 @@ function timerMouse() {
             // 清除定时器
             clearTimeout(timer1)
             clearTimeout(timer2)
-
             music1.pause()
             music2.pause()
             music3.pause()
-
         }
     },1000)
     timer2 = setInterval(function () {
