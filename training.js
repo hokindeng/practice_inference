@@ -7,3 +7,6 @@ let score = document.querySelector(".score")
 let time = document.querySelector(".time")
 let restart = document.querySelector(".restart")
 let end_game = document.querySelector(".end_game")
+
+// Instruction page
+
