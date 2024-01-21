@@ -7,7 +7,6 @@ let score = document.querySelector(".score")
 let time = document.querySelector(".time")
 let restart = document.querySelector(".restart")
 let end_game = document.querySelector(".end_game")
-const canvas = document.getElementById('myCanvas').style.zIndex = "10";
 
 // Instruction page
 
@@ -20,7 +19,7 @@ start_btn.onclick = function () {
 
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
  style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
-
+let canvas = document.getElementById('myCanvas').style.zIndex = "10";
 const ctx = canvas.getContext('2d');
 let GameIndex = ''      // 当前地鼠处于哪个位置
 let fraction = 0        // 当前得分
