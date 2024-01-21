@@ -14,7 +14,7 @@ start_btn.onclick = function () {
     start_game.style.top = '-100%'
     music1.volume = 0.1
     music1.play()
-    draw_block()
+    timer()
 }
 
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
@@ -25,7 +25,6 @@ let fraction = 0        // 当前得分
 let timeNumber = 0      // 当前时间
 let timer1 = null       // 第一个计时器
 let timer2 = null       // 第一个计时器
-
 
 
 function timer() {
