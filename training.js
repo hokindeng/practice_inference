@@ -14,5 +14,4 @@ start_btn.onclick = function () {
     start_game.style.top = '-100%'
     music1.volume = 0.1
     music1.play()
-    timerMouse()
 }
