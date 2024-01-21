@@ -26,6 +26,27 @@ let timeNumber = 0      // 当前时间
 let timer1 = null       // 第一个计时器
 let timer2 = null       // 第一个计时器
 
+drawInstructions()
+
+// Draw the instructions on the canvas.
+function drawInstructions() {
+  ctx.fillStyle = "white";
+  ctx.font = "24px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText("Pizza Delivery Game", canvas.width / 2, canvas.height / 2 - 180);
+  ctx.fillText("Your task is to deliver all pizzas as fast as possible.", canvas.width / 2, canvas.height / 2 - 130);
+  ctx.fillText("The current deliver spot is marked by a pizza slice.", canvas.width / 2, canvas.height / 2 - 80);
+  ctx.fillText('Move your car with "w", "s", "j", and "l" to drive to the deliver spot.', canvas.width / 2, canvas.height / 2 - 30);
+  ctx.fillText("The faster you are, the higher the tip will be.", canvas.width / 2, canvas.height / 2 + 20);
+  // Draw the Start Game button
+  ctx.fillStyle = "lightgray";
+  ctx.fillRect(canvas.width / 2 - 100, canvas.height / 2 + 120, 200, 50);
+  ctx.fillStyle = "black";
+  ctx.fillText("Start Game", canvas.width / 2, canvas.height / 2 + 150);
+  // Draw the car and pizza images
+  ctx.drawImage(carImg, canvas.width*0.05, canvas.height*0.05, canvas.height*0.14, canvas.height*0.07);
+  ctx.drawImage(targetImg, canvas.width*0.9, canvas.height*0.04, canvas.height*0.1, canvas.height*0.1);
+}
 
 function timer() {
     timer1 = setInterval(function () {
