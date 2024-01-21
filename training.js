@@ -22,7 +22,7 @@ let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image
 
 // Corrected canvas initialization
 let canvas = document.getElementById('myCanvas');
-canvas.style.zIndex = "10";
+canvas.style.zIndex = "100";
 const ctx = canvas.getContext('2d');
 
 // Circle properties
