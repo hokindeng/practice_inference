@@ -14,7 +14,7 @@ start_btn.onclick = function () {
     start_game.style.top = '-100%'
     music1.volume = 0.1
     music1.play()
-    game_update()
+    draw_block()
 }
 
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
@@ -26,7 +26,9 @@ let timeNumber = 0      // 当前时间
 let timer1 = null       // 第一个计时器
 let timer2 = null       // 第一个计时器
 
-function game_update() {
+
+
+function timer() {
     timer1 = setInterval(function () {
         timeNumber = timeNumber + 1
         time.innerHTML = '00 : ' + (timeNumber < 10 ? '0' + timeNumber : timeNumber)
