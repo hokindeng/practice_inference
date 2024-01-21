@@ -16,5 +16,6 @@ start_btn.onclick = function () {
     music1.play()
 }
 
-let innerHtml = ` <img src="image/img1.jpg"/>
-            <div class="mouse"><img src="image/mouse.png" style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
+let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
+ style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
+
