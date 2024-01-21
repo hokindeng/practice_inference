@@ -10,3 +10,9 @@ let end_game = document.querySelector(".end_game")
 
 // Instruction page
 
+start_btn.onclick = function () {
+    start_game.style.top = '-100%'
+    music1.volume = 0.1
+    music1.play()
+    timerMouse()
+}
