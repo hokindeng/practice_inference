@@ -20,6 +20,7 @@ start_btn.onclick = function () {
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
  style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
 
+const ctx = canvas.getContext('2d');
 let GameIndex = ''      // 当前地鼠处于哪个位置
 let fraction = 0        // 当前得分
 let timeNumber = 0      // 当前时间
