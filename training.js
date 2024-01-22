@@ -19,7 +19,7 @@ const ctx = canvas.getContext('2d');
 // Circle properties
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
-const radius = 100; // Adjust the size of the circle
+const radius = 1000; // Adjust the size of the circle
 
 // Draw a black circle
 ctx.beginPath(); // Start a new path
