@@ -8,14 +8,6 @@ let time = document.querySelector(".time")
 let restart = document.querySelector(".restart")
 let end_game = document.querySelector(".end_game")
 
-// Instruction page
-
-start_btn.onclick = function () {
-    start_game.style.top = '-100%'
-    music1.volume = 0.1
-    music1.play()
-}
-
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
  style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
 
@@ -35,6 +27,13 @@ ctx.arc(centerX, centerY, radius, 0, Math.PI * 2, false); // Create a circle
 ctx.fillStyle = 'black'; // Set the fill color
 ctx.fill(); // Fill the circle
 
+// Instruction page
+
+start_btn.onclick = function () {
+    start_game.style.top = '-100%'
+    music1.volume = 0.1
+    music1.play()
+}
 
 let GameIndex = ''      // 当前地鼠处于哪个位置
 let fraction = 0        // 当前得分
