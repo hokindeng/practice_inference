@@ -14,7 +14,6 @@ start_btn.onclick = function () {
     start_game.style.top = '-100%'
     music1.volume = 0.1
     music1.play()
-    drawInstructions()
 }
 
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
