@@ -8,13 +8,13 @@ let end_game = document.querySelector(".end_game")
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
  style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
 
-// Instruction page
-
 let GameIndex = ''      // 当前地鼠处于哪个位置
 let fraction = 0        // 当前得分
 let timeNumber = 0      // 当前时间
 let timer1 = null       // 第一个计时器
 let timer2 = null       // 第一个计时器
+
+timer()
 
 function timer() {
     timer1 = setInterval(function () {
