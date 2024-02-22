@@ -133,19 +133,19 @@ img {
 
 .game_over {
     font-size: 3vw;
-    font-family: Impact;
+    font-family: Impact, serif;
 }
 
 .game_score {
     font-size: 40px;
-    font-family: "Arial Black";
+    font-family: "Arial Black", serif;
     margin-top: 50px;
 }
 
 .restart {
     border: 3px solid white;
     font-size: 2vw;
-    font-family: Impact;
+    font-family: Impact, serif;
     padding: 10px 40px;
     margin-top: 50px;
     cursor: pointer;
