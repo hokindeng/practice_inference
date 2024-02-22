@@ -1,8 +1,17 @@
 // script.js
 
-function redirectToSecondPage() {
-    // Redirect to second_page.html
-    window.location.href = "second_page.html";
+function save_local_mapping() {
+// Base set of items
+  const items = [0, 1, 2, 3, 4];
+
+// Generate all permutations of the items
+  const allPermutations = generatePermutations(items);
+
+// Select the first 3 unique permutations for our mappings
+  const mappings = allPermutations.slice(0, 3);
+
+// Save the mappings to a local file
+  saveMappings(mappings);
 }
 
 function generatePermutations(array) {
@@ -21,7 +30,6 @@ function generatePermutations(array) {
     }
 
     permute(array);
-
     return result;
 }
 
@@ -38,14 +46,8 @@ function saveMappings(mappings) {
     document.body.removeChild(link);
 }
 
-// Base set of items
-const items = [0, 1, 2, 3, 4];
-
-// Generate all permutations of the items
-const allPermutations = generatePermutations(items);
-
-// Select the first 3 unique permutations for our mappings
-const mappings = allPermutations.slice(0, 3);
-
-// Save the mappings to a local file
-saveMappings(mappings);
+function redirectToSecondPage() {
+    // Redirect to second_page.html
+    save_local_mapping();
+    window.location.href = "second_page.html";
+}
