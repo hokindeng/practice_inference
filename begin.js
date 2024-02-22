@@ -1,5 +1,21 @@
 // script.js
 
+const fs = require('fs');
+
+// Create a new directory named 'newFolder'
+const folderName = './newFolder';
+
+try {
+  if (!fs.existsSync(folderName)) {
+    fs.mkdirSync(folderName);
+    console.log('Directory created successfully');
+  } else {
+    console.log('Directory already exists');
+  }
+} catch (err) {
+  console.error(err);
+}
+
 function save_local_mapping() {
 // Base set of items
   const items = [0, 1, 2, 3, 4];
