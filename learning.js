@@ -1,39 +1,14 @@
-let start_game = document.querySelector(".start_game")
-let start_btn = document.querySelector(".start_btn")
 let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
 let score = document.querySelector(".score")
-let time = document.querySelector(".time")
-let restart = document.querySelector(".restart")
+let trial = document.querySelector(".trial")
 let end_game = document.querySelector(".end_game")
 
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
  style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
 
-// Corrected canvas initialization
-let canvas = document.getElementById('myCanvas');
-canvas.style.zIndex = "100";
-const ctx = canvas.getContext('2d');
-
-// Circle properties
-const centerX = canvas.width / 2;
-const centerY = canvas.height / 2;
-const radius = 1000; // Adjust the size of the circle
-
-// Draw a black circle
-ctx.beginPath(); // Start a new path
-ctx.arc(centerX, centerY, radius, 0, Math.PI * 2, false); // Create a circle
-ctx.fillStyle = 'black'; // Set the fill color
-ctx.fill(); // Fill the circle
-
 // Instruction page
-
-start_btn.onclick = function () {
-    start_game.style.top = '-100%'
-    music1.volume = 0.1
-    music1.play()
-}
 
 let GameIndex = ''      // 当前地鼠处于哪个位置
 let fraction = 0        // 当前得分
