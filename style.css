@@ -34,7 +34,7 @@
     margin-bottom: 20px;
     color: white;
     font-size: 18px;
-    font-family: Arial;
+    font-family: Arial, serif;
     border-radius: 5px;
 }
 
@@ -45,7 +45,7 @@
     font-size: 30px;
     color: white;
     border: 2px solid white;
-    font-family: Impact;
+    font-family: Impact, serif;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
