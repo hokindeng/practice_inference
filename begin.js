@@ -64,6 +64,6 @@ function saveMappings(mappings) {
 
 function redirectToSecondPage() {
     // Redirect to second_page.html
-    save_local_mapping();
-    window.location.href = "second_page.html";
+    //save_local_mapping();
+    //window.location.href = "second_page.html";
 }
