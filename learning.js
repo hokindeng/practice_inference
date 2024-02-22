@@ -4,10 +4,11 @@ let music3 = document.querySelector(".music3")
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
 let end_game = document.querySelector(".end_game")
-music1.volume = 0.1
-music1.play()
+
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
- style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
+ style="transform: translateY(100%) !important;" class="mouse_img"/></div> <div class="hammer"><img src="image/hammer.png" 
+ style="transform: translateY(100%) !important;" class="hammer"/></div>`
+
 
 let GameIndex = ''      // 当前地鼠处于哪个位置
 let fraction = 0        // 当前得分
@@ -29,9 +30,6 @@ function timer() {
             // 清除定时器
             clearTimeout(timer1)
             clearTimeout(timer2)
-            music1.pause()
-            music2.pause()
-            music3.pause()
         }
     },1000)
     timer2 = setInterval(function () {
