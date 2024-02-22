@@ -4,7 +4,8 @@ let music3 = document.querySelector(".music3")
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
 let end_game = document.querySelector(".end_game")
-
+music1.volume = 0.1
+music1.play()
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
  style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
 
