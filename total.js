@@ -7,6 +7,8 @@ function redirectToSecondPage() {
     window.location.href = "second_page.html";
 }
 
+//Learning
+
 let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
