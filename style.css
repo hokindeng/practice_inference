@@ -62,18 +62,20 @@ img {
 }
 
 .game_con_center {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    padding-bottom: 10vh;
-    background: #98DF83;
-    position: relative;
-    /* you could adjust the size of the overall canvas here */
-    width: 100vw;
-    height: 80vh; /* Make the height of the container equal to 100% of the viewport height */
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns with equal fractions of the available space */
+    grid-template-rows: auto; /* Rows adjust their height automatically based on their content */
+    justify-content: center; /* Horizontally centers the grid items within the grid container */
+    align-items: center; /* Vertically centers the grid items within their grid area */
+    text-align: center; /* Centers text inside the grid items */
+    padding-bottom: 10vh; /* Adds bottom padding relative to the height of the viewport */
+    background: #98DF83; /* Background color */
+    position: absolute; /* Changed to absolute to allow centering via top/left/transform */
+    width: 960px; /* Fixed width */
+    height: 540px; /* Fixed height */
+    top: 50%; /* Position the top edge of the element at the middle of the container */
+    left: 50%; /* Position the left edge of the element at the middle of the container */
+    transform: translate(-50%, -50%); /* Shift the element back by half its width and height to center it */
 }
 
 
