@@ -71,9 +71,7 @@ img {
     padding-bottom: 10vh;
     background: #98DF83;
     position: relative;
-
     /* you could adjust the size of the overall canvas here */
-
     width: 100vw;
     height: 80vh; /* Make the height of the container equal to 100% of the viewport height */
 }
