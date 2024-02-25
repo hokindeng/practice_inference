@@ -1,6 +1,6 @@
 // script.js
 
-
+let start_game = document.querySelector(".start_game")
 let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
@@ -9,8 +9,7 @@ let end_game = document.querySelector(".end_game")
 // Begin
 
 function redirectToSecondPage() {
-    //Redirect to second_page.html
-    window.location.href = "second_page.html";
+    start_game.style.top = '-100%'
     music1.volume = 0.1
     music1.play()
     let trial = document.querySelector(".trial");
