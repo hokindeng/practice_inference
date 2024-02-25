@@ -13,6 +13,10 @@ function redirectToSecondPage() {
     window.location.href = "second_page.html";
     music1.volume = 0.1
     music1.play()
+    let trial = document.querySelector(".trial");
+    if (trial) {
+        trial.textContent = "20"; // This will change the content of the .trial element to "20"
+    }
     one_trial()
 }
 
