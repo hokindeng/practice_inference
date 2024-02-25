@@ -61,23 +61,23 @@ img {
     display: block;
 }
 
-.game_con {
-    width: 100%;
+.game_con_center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
-    padding-bottom: 111px;
+    padding-bottom: 10vh;
     background: #98DF83;
     position: relative;
+
+    /* you could adjust the size of the overall canvas here */
+
+    width: 100vw;
+    height: 80vh; /* Make the height of the container equal to 100% of the viewport height */
 }
 
-.game_con_center {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    text-align: center;
-}
 
 .trial {
     position: absolute !important;
