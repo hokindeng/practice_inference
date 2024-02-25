@@ -1,21 +1,22 @@
 // script.js
 
+
+let music1 = document.querySelector(".music1")
+let music2 = document.querySelector(".music2")
+let music3 = document.querySelector(".music3")
+let trial = document.querySelector(".trial")
+let end_game = document.querySelector(".end_game")
 // Begin
 
 function redirectToSecondPage() {
     //Redirect to second_page.html
     window.location.href = "second_page.html";
+    music1.volume = 0.1
+    music1.play()
     one_trial()
 }
 
 // Learning
-
-let music1 = document.querySelector(".music1")
-let music2 = document.querySelector(".music2")
-let music3 = document.querySelector(".music3")
-let score = document.querySelector(".score")
-let trial = document.querySelector(".trial")
-let end_game = document.querySelector(".end_game")
 
 let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
  style="transform: translateY(100%) !important;" class="mouse_img"/></div> <div class="hammer"><img src="image/hammer.png" 
@@ -28,6 +29,8 @@ let timer1 = null       // 第一个计时器
 let timer2 = null       // 第一个计时器
 
 function one_trial(){
-    let game_score_number = document.querySelector(".game_score_number")
-    game_score_number.innerHTML = fraction
+    let score = document.querySelector(".score")
+    score.innerHTML = fraction
+    let mouse_img = document.querySelector('.mouse_img')
+    mouse_img.style.transform = 'translateY(0%)'
 }
