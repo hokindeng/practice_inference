@@ -5,6 +5,7 @@
 function redirectToSecondPage() {
     //Redirect to second_page.html
     window.location.href = "second_page.html";
+    one_trial()
 }
 
 // Learning
@@ -21,11 +22,12 @@ let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image
  style="transform: translateY(100%) !important;" class="hammer"/></div>`
 
 let GameIndex = ''      // 当前地鼠处于哪个位置
-let fraction = 0        // 当前得分
+let fraction = 9       // 当前得分
 let timeNumber = 0      // 当前时间
 let timer1 = null       // 第一个计时器
 let timer2 = null       // 第一个计时器
 
 function one_trial(){
-
+    let game_score_number = document.querySelector(".game_score_number")
+    game_score_number.innerHTML = fraction
 }
