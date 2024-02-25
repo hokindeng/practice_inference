@@ -71,6 +71,14 @@ img {
     position: relative;
 }
 
+.game_con_center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+}
+
 .trial {
     position: absolute !important;
     left: 5px;
