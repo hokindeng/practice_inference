@@ -4,9 +4,9 @@ let start_game = document.querySelector(".start_game")
 let background_music = document.querySelector(".music1")
 
 
-// let innerHtml = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png"
-// style="transform: translateY(100%) !important;" class="mouse_img"/></div> <div class="hammer"><img src="image/hammer.png"
-// style="transform: translateY(100%) !important;" class="hammer"/></div>`
+let render_hammer = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png"
+style="transform: translateY(100%) !important;" class="mouse_img"/></div> <div class="hammer"><img src="image/hammer.png"
+style="transform: translateY(100%) !important;" class="hammer"/></div>`
 
 function redirectToSecondPage() {
     start_game.style.top = '-100%'
@@ -22,8 +22,6 @@ let timer1 = null       // 第一个计时器
 let timer2 = null       // 第一个计时器
 
 function one_trial(){
-    let score = document.querySelector(".score")
-    score.innerHTML = fraction
-    let mouse_img = document.querySelector('.mouse_img')
-    mouse_img.style.transform = 'translateY(0%)'
+    GameIndex = Math.floor(Math.random() * 9)
+    document.querySelector('.game' + GameIndex).innerHTML = render_hammer
 }
