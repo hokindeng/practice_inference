@@ -4,8 +4,7 @@ let start_game = document.querySelector(".start_game")
 let background_music = document.querySelector(".music1")
 
 
-let render_hammer = ` <img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png"
-style="transform: translateY(100%) !important;" class="mouse_img"/></div> <div class="hammer"><img src="image/hammer.png"
+let render_hammer = `<div class="hammer"><img src="image/hammer.png" 
 style="transform: translateY(100%) !important;" class="hammer"/></div>`
 
 function redirectToSecondPage() {
