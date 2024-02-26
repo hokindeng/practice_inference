@@ -5,7 +5,7 @@ let background_music = document.querySelector(".music1")
 
 
 let render_hammer = `<div class="hammer"><img src="image/hammer.png" 
-style="transform: translateY(100%) !important;" class="hammer"/></div>`
+style="transform: translateX(-10px) translateY(-10px) !important;" class="hammer"/></div>`;
 
 function redirectToSecondPage() {
     start_game.style.top = '-100%'
