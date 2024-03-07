@@ -20,6 +20,7 @@ function redirectToSecondPage() {
     background_music.play()
     one_trial()
     context_change_into_rose()
+    downloadArrayAsFile(myArray, "myArray.json");
 }
 
 function shuffleArray(array) {
@@ -74,3 +75,35 @@ function context_change_into_purple(){
         element.classList.add('context_cue_purple');
     }
 }
+function downloadArrayAsFile(array, filename) {
+    // Convert the array to a string format (e.g., JSON)
+    const jsonString = JSON.stringify(array);
+
+    // Create a Blob from the JSON string
+    const blob = new Blob([jsonString], {type: "application/json"});
+
+    // Create a URL for the Blob
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary anchor (`a`) element
+    const a = document.createElement("a");
+
+    // Set the download attribute of the anchor to the filename
+    a.download = filename;
+
+    // Set the href of the anchor to the Blob URL
+    a.href = url;
+
+    // Append the anchor to the document body temporarily
+    document.body.appendChild(a);
+
+    // Trigger the download by simulating a click on the anchor
+    a.click();
+
+    // Clean up by removing the temporary anchor and revoking the Blob URL
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Example usage
+const myArray = [1, 2, 3, 4, 5];
