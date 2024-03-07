@@ -7,6 +7,9 @@ style="transform: translateX(-70px) translateY(-100px) scale(2) !important;" cla
 let mapping_1 = [1, 2, 3, 4, 5]
 let mapping_2 = [1, 2, 3, 4, 5]
 let mapping_3 = [1, 2, 3, 4, 5]
+let data = []; // data for each trial will be stored here
+let score = document.querySelector(".score")
+let trial = document.querySelector(".trial")
 
 function create_all_mappings(){
     mapping_1 = shuffleArray(mapping_1)
@@ -20,7 +23,7 @@ function redirectToSecondPage() {
     background_music.play()
     one_trial()
     context_change_into_rose()
-    downloadArrayAsFile(data, "myArray.json");
+    downloadArrayAsFile(data, "myData.json");
 }
 
 function shuffleArray(array) {
@@ -75,32 +78,26 @@ function context_change_into_purple(){
         element.classList.add('context_cue_purple');
     }
 }
+
 function downloadArrayAsFile(array, filename) {
     // Convert the array to a string format (e.g., JSON)
     const jsonString = JSON.stringify(array);
-
     // Create a Blob from the JSON string
     const blob = new Blob([jsonString], {type: "application/json"});
-
     // Create a URL for the Blob
     const url = URL.createObjectURL(blob);
-
     // Create a temporary anchor (`a`) element
     const a = document.createElement("a");
-
     // Set the download attribute of the anchor to the filename
     a.download = filename;
-
     // Set the href of the anchor to the Blob URL
     a.href = url;
-
     // Append the anchor to the document body temporarily
     document.body.appendChild(a);
-
     // Trigger the download by simulating a click on the anchor
     a.click();
-
     // Clean up by removing the temporary anchor and revoking the Blob URL
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
+
