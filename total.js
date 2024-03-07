@@ -32,6 +32,16 @@ function redirectToSecondPage() {
 
 function training_mapping_1() {
     context_change_into_rose()
+    stimuli = generate_stimuli();
+    for (let i = 0; i < 100; i++) {
+        one_training_trial(trial_number, stimuli, mapping_1)
+    }
+}
+
+function generate_stimuli() {
+    let temp = [0]*20 + [2]*20 + [4]*20 + [6]*20 + [8]*20
+    shuffleArray(temp)
+    return temp
 }
 
 function shuffleArray(array) {
