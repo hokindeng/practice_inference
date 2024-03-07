@@ -10,6 +10,10 @@ let mapping_3 = [1, 2, 3, 4, 5]
 let data = []; // data for each trial will be stored here
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
+let score_number = 0
+score.innerHTML = String(score_number)
+let trial_number = 0
+trial.innerHTML = String(trial_number)
 
 function create_all_mappings(){
     mapping_1 = shuffleArray(mapping_1)
@@ -24,6 +28,10 @@ function redirectToSecondPage() {
     one_trial()
     context_change_into_rose()
     downloadArrayAsFile(data, "myData.json");
+}
+
+function training_mapping_1() {
+    context_change_into_rose()
 }
 
 function shuffleArray(array) {
