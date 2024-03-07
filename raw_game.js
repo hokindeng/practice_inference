@@ -8,14 +8,12 @@ let time = document.querySelector(".time")
 let restart = document.querySelector(".restart")
 let end_game = document.querySelector(".end_game")
 
-
 start_btn.onclick = function () {
     start_game.style.top = '-100%'
     music1.volume = 0.1
     music1.play()
     timerMouse()
 }
-
 
 let innerHtml = ` <img src="image/img1.jpg"/>
             <div class="mouse"><img src="image/mouse.png" style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
