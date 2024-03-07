@@ -20,7 +20,7 @@ function redirectToSecondPage() {
     background_music.play()
     one_trial()
     context_change_into_rose()
-    downloadArrayAsFile(myArray, "myArray.json");
+    downloadArrayAsFile(data, "myArray.json");
 }
 
 function shuffleArray(array) {
@@ -104,6 +104,3 @@ function downloadArrayAsFile(array, filename) {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
-
-// Example usage
-const myArray = [1, 2, 3, 4, 5];
