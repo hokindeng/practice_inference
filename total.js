@@ -32,7 +32,7 @@ function redirectToSecondPage() {
 
 function training_mapping_1() {
     context_change_into_rose()
-    stimuli = generate_stimuli();
+    let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
         one_training_trial(trial_number, stimuli, mapping_1)
     }
