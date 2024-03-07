@@ -27,5 +27,9 @@ function one_trial(){
 }
 
 function context_change(){
-    document.querySelector('.context_cue').innerHTML = blue_context
+    let element = document.querySelector('.context_cue');
+    if (element) {
+        element.classList.remove('context_cue');
+        element.classList.add('context_cue_rose');
+    }
 }
