@@ -45,7 +45,6 @@ function training_mapping_1() {
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
         let this_trial_data = one_training_trial(trial_number, stimuli, mapping_1)
-        setTimeout(bug_check, 2000);
         data.push({trial_number: i, trial_data: this_trial_data,});
     }
 }
@@ -55,11 +54,10 @@ function bug_check() {
 }
 
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
+    console.log(tr_ial)
+    setTimeout(bug_check, 2000);
     let single_trial_data = []
     let trial_stimulus_number = s_t_i_m_u_l_i[tr_ial]
-    console.log(s_t_i_m_u_l_i)
-    console.log(tr_ial)
-    console.log('hERE' + trial_stimulus_number)
     let original_content = document.querySelector('.game' + trial_stimulus_number).innerHTML
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     let stimulus_display_time = new Date().getTime();
