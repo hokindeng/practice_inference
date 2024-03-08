@@ -2,7 +2,7 @@
 
 let experiment_start_time = new Date().getTime();
 let show_mouse = ` <img src="image/img1.jpg"/>
-            <div class="mouse"><img src="image/mouse.png" style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
+            <div class="mouse"><img src="image/mouse.png" style="transform: translateY(0%) !important;" class="mouse_img"/></div>`
 let render_hammer = `<img src="image/img1.jpg"/> <div class="hammer"><img src="image/hammer.png" 
 style="transform: translateX(-70px) translateY(-100px) scale(2) !important;" class="hammer"/></div>`;
 let show_mouse_and_hammer = `
@@ -27,7 +27,7 @@ let score_number = 0
 score.innerHTML = String(score_number)
 let trial_number = 0
 trial.innerHTML = String(trial_number)
-let GameIndex = '0'      // 当前地鼠处于哪个位置
+let GameIndex = '8'      // 当前地鼠处于哪个位置
 
 function create_all_mappings(){
     mapping_1 = shuffleArray(mapping_1)
