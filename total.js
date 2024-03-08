@@ -88,13 +88,14 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
                 document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
             }, 200) // display hitting the marmot
         } else {
+            let hammer_exist = document.querySelector('.hammer')
+            if (hammer_exist) {
+                    hammer_exist.parentNode.removeChild(hammer_exist);
+            }
             music2.play()
             setTimeout(function () {
                 document.querySelector('.game' + keyIndex).innerHTML = render_hammer
             }, 200) // display only the hammer
-            setTimeout(function () {
-                document.querySelector('.game' + keyIndex).innerHTML = empty
-            }, 500) // remove hammer
         }
     }
     single_trial_data.push({
