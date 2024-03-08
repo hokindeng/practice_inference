@@ -16,6 +16,7 @@ let show_mouse_and_hammer = `
 </div>
 `;
 
+let pressedTime = ''
 let start_game = document.querySelector(".start_game")
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
@@ -58,8 +59,38 @@ function one_training_trial_pilot(tri, sti, mp) {
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     setTimeout(function () {
         document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
-    }, 5000) // remove hammer
+    }, 5000) // remove everything
+    document.addEventListener('keydown', handleKeyPress);
     return single_trial_data
+}
+
+const handleKeyPress = (event) => {
+    pressedTime = new Date().getTime(); // Get the current time in milliseconds
+    console.log(`A key was pressed at ${pressedTime}`);
+    // Remove the event listener after capturing the first key press
+    key_visualization(event)
+    document.removeEventListener('keydown', handleKeyPress);
+};
+
+function key_visualization(event) {
+    let keyIndex = ''
+    switch (event.key) {
+        case 'h':
+            keyIndex = map[0]
+            break
+        case 'u':
+            keyIndex = map[1]
+            break
+        case 'i':
+            keyIndex = map[2]
+            break
+        case 'l':
+            keyIndex = map[3]
+            break
+        case 'b':
+            keyIndex = map[4]
+            break
+    }
 }
 
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
