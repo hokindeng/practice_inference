@@ -1,6 +1,9 @@
 // script.js
+let music1 = document.querySelector(".music1")
+let music2 = document.querySelector(".music2")
+let music3 = document.querySelector(".music3")
 
-let experiment_start_time = new Date().getTime();
+let empty = '<div><img src="image/img1.jpg"/></div>'
 let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
 style="transform: translateX(-37px) translateY(-90px) scale(1.8) !important;" class="mouse"/></div>`;
 let render_hammer = `<img src="image/img1.jpg"/> <div class="hammer"><img src="image/hammer.png" 
@@ -14,14 +17,14 @@ let show_mouse_and_hammer = `
 `;
 
 let start_game = document.querySelector(".start_game")
-let background_music = document.querySelector(".music1")
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
 let mapping_3 = [0, 1, 2, 3, 4]
 let data = []; // data for each trial will be stored here
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
-score.innerHTML = String(0)
+let score_number = 0
+score.innerHTML = String(score_number)
 trial.innerHTML = String(0)
 
 function create_all_mappings(){
@@ -32,8 +35,8 @@ function create_all_mappings(){
 
 function redirectToSecondPage() {
     start_game.style.top = '-100%'
-    background_music.volume = 0.1
-    background_music.play()
+    music1.volume = 0.1
+    music1.play()
     training_mapping_1()
 }
 
@@ -51,7 +54,6 @@ function training_mapping_1() {
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     let single_trial_data = []
     let trial_stimulus_number = s_t_i_m_u_l_i[tr_ial]
-    let original_content = document.querySelector('.game' + trial_stimulus_number).innerHTML
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     let stimulus_display_time = new Date().getTime();
     let keyIndex = ''
@@ -82,15 +84,18 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
             setTimeout(function () {
                 document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
             }, 200) // display hitting the marmot
+            setTimeout(function () {
+                document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
+            }, 2000) // remove hitting
         } else {
             music2.play()
-            let temp = document.querySelector('.game' + keyIndex).innerHTML
             setTimeout(function () {
                 document.querySelector('.game' + keyIndex).innerHTML = render_hammer
             }, 200) // display only the hammer
-            document.querySelector('.game' + keyIndex).innerHTML = temp
+            setTimeout(function () {
+                document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
+            }, 2000) // remove hammer
         }
-        document.querySelector('.game' + trial_stimulus_number).innerHTML = original_content
     }
     single_trial_data.push({
         stimulus_number: trial_stimulus_number,
