@@ -61,6 +61,8 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     let stimulus_display_time = new Date().getTime();
     let keyIndex = ''
     let key_press_time = ''
+    let not_hit_yet = true
+    if (not_hit_yet) {
     document.onkeydown = function (e) {
         switch (e.key) {
             case 'h':
@@ -79,6 +81,7 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
                 keyIndex = map[4]
                 break
         }
+        not_hit_yet = false
         key_press_time = new Date().getTime();
         if (keyIndex === trial_stimulus_number) {
             score_number++
@@ -97,7 +100,7 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
                 document.querySelector('.game' + keyIndex).innerHTML = render_hammer
             }, 200) // display only the hammer
         }
-    }
+    }}
     single_trial_data.push({
         stimulus_number: trial_stimulus_number,
         key_press_number: keyIndex,
