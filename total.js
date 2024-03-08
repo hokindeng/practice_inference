@@ -51,11 +51,12 @@ function training_mapping_1() {
 
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     let single_trial_data = []
-    trial_stimulus_number = s_t_i_m_u_l_i(tr_ial)
+    let trial_stimulus_number = s_t_i_m_u_l_i(tr_ial)
     let original_content = document.querySelector('.game' + trial_stimulus_number).innerHTML
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     let stimulus_display_time = new Date().getTime();
     let keyIndex = ''
+    let key_press_time = ''
     document.onkeydown = function (e) {
         switch (e.key) {
             case 'h':
@@ -74,7 +75,7 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
                 keyIndex = map(4)
                 break
         }
-        let key_press_time = new Date().getTime();
+        key_press_time = new Date().getTime();
         if (keyIndex === trial_stimulus_number) {
             score_number++
             score.innerHTML = String(score_number)
@@ -93,7 +94,10 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
         document.querySelector('.game' + trial_stimulus_number).innerHTML = original_content
     }
     single_trial_data.push({
-      stimulus_number: trial_stimulus_number, key_press_number: keyIndex, stimulus_display_time: stimulus_display_time
+        stimulus_number: trial_stimulus_number,
+        key_press_number: keyIndex,
+        stimulus_display_time: stimulus_display_time,
+        key_pressed_time: key_press_time,
     });
     return single_trial_data
 }
