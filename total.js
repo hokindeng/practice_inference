@@ -15,7 +15,6 @@ let show_mouse_and_hammer = `
 </div>
 `;
 
-
 let start_game = document.querySelector(".start_game")
 let background_music = document.querySelector(".music1")
 let mapping_1 = [1, 2, 3, 4, 5]
