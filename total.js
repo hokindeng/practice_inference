@@ -18,7 +18,6 @@ let background_music = document.querySelector(".music1")
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
 let mapping_3 = [0, 1, 2, 3, 4]
-let game_index_reference = [0 ,2 ,4, 6,8]
 let data = []; // data for each trial will be stored here
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
@@ -58,19 +57,19 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
         let keyIndex = ''
         switch (e.key) {
             case 'h':
-                keyIndex = 0
+                keyIndex = map(0)
                 break
             case 'u':
-                keyIndex = 1
+                keyIndex = map(1)
                 break
             case 'i':
-                keyIndex = 2
+                keyIndex = map(2)
                 break
             case 'l':
-                keyIndex = 3
+                keyIndex = map(3)
                 break
             case 'b':
-                keyIndex = 4
+                keyIndex = map(4)
                 break
         }
     }
