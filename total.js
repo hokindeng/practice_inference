@@ -52,6 +52,7 @@ function training_mapping_1() {
 
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     GameIndex = s_t_i_m_u_l_i(tr_ial)
+    let original_content = document.querySelector('.game' + GameIndex).innerHTML
     document.querySelector('.game' + GameIndex).innerHTML = show_mouse
     document.onkeydown = function (e) {
         let keyIndex = ''
@@ -77,11 +78,18 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
             score.innerHTML = String(score_number)
             music3.play()
             GameIndex = ''
-            document.querySelector('.game' + GameIndex).innerHTML = show_mouse_and_hammer
+            setTimeout(function () {
+                document.querySelector('.game' + GameIndex).innerHTML = show_mouse_and_hammer
+            }, 200) // display hitting the marmot
         } else {
-            // 未按对
             music2.play()
+            let temp = document.querySelector('.game' + keyIndex).innerHTML
+            setTimeout(function () {
+                document.querySelector('.game' + keyIndex).innerHTML = render_hammer
+            }, 200) // display only the hammer
+            document.querySelector('.game' + keyIndex).innerHTML = temp
         }
+        document.querySelector('.game' + GameIndex).innerHTML = original_content
     }
 }
 
