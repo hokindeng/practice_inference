@@ -27,7 +27,7 @@ let score_number = 0
 score.innerHTML = String(score_number)
 let trial_number = 0
 trial.innerHTML = String(trial_number)
-let GameIndex = '8'      // 当前地鼠处于哪个位置
+let GameIndex = '0'      // 当前地鼠处于哪个位置
 
 function create_all_mappings(){
     mapping_1 = shuffleArray(mapping_1)
