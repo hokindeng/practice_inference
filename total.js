@@ -59,19 +59,19 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     document.onkeydown = function (e) {
         switch (e.key) {
             case 'h':
-                keyIndex = map(0)
+                keyIndex = map[0]
                 break
             case 'u':
-                keyIndex = map(1)
+                keyIndex = map[1]
                 break
             case 'i':
-                keyIndex = map(2)
+                keyIndex = map[2]
                 break
             case 'l':
-                keyIndex = map(3)
+                keyIndex = map[3]
                 break
             case 'b':
-                keyIndex = map(4)
+                keyIndex = map[4]
                 break
         }
         key_press_time = new Date().getTime();
