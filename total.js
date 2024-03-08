@@ -17,6 +17,7 @@ let show_mouse_and_hammer = `
 `;
 
 let pressedTime = ''
+let trial_stimulus_number = ''
 let start_game = document.querySelector(".start_game")
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
@@ -55,7 +56,7 @@ function training_mapping_1() {
 
 function one_training_trial_pilot(tri, sti, mp) {
     let single_trial_data = []
-    let trial_stimulus_number = sti[tri]
+    trial_stimulus_number = sti[tri]
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     setTimeout(function () {
         document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
@@ -90,6 +91,23 @@ function key_visualization(event) {
         case 'b':
             keyIndex = map[4]
             break
+    }
+    if (keyIndex === trial_stimulus_number) {
+        score_number++
+        score.innerHTML = String(score_number)
+        music3.play()
+        setTimeout(function () {
+            document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
+        }, 200) // display hitting the marmot
+    } else {
+        let hammer_exist = document.querySelector('.hammer')
+        if (hammer_exist) {
+            hammer_exist.parentNode.removeChild(hammer_exist);
+        }
+        music2.play()
+        setTimeout(function () {
+            document.querySelector('.game' + keyIndex).innerHTML = render_hammer
+        }, 200) // display only the hammer
     }
 }
 
