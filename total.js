@@ -44,7 +44,7 @@ function training_mapping_1() {
         setTimeout(function() {
             let this_trial_data = one_training_trial(i, stimuli, mapping_1);
             data.push({trial_number: i, trial_data: this_trial_data});
-        }, 1000 * i); // This ensures that each function call is delayed by 1 second more than the previous one
+        }, 5000 * i); // This ensures that each function call is delayed by 1 second more than the previous one
     }
 }
 
