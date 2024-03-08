@@ -46,6 +46,7 @@ function training_mapping_1() {
     for (let i = 0; i < 100; i++) {
         setTimeout(function() {
             let this_trial_data = one_training_trial(i, stimuli, mapping_1);
+            trial.innerHTML = String(i + 1)
             data.push({trial_number: i, trial_data: this_trial_data});
         }, 5000 * i); // This ensures that each function call is delayed by 1 second more than the previous one
     }
@@ -102,12 +103,13 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
             }
         }
     }
-    single_trial_data.push({
+    setTimeout(function () {
+        single_trial_data.push({
         stimulus_number: trial_stimulus_number,
         key_press_number: keyIndex,
         stimulus_display_time: stimulus_display_time,
-        key_pressed_time: key_press_time,
-    });
+        key_pressed_time: key_press_time,});
+        }, 5000) // remove hammer
     return single_trial_data
 }
 
