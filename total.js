@@ -25,7 +25,6 @@ function redirectToSecondPage() {
     start_game.style.top = '-100%'
     background_music.volume = 0.1
     background_music.play()
-    one_trial()
     context_change_into_rose()
     downloadArrayAsFile(data, "myData.json");
 }
@@ -36,6 +35,11 @@ function training_mapping_1() {
     for (let i = 0; i < 100; i++) {
         one_training_trial(trial_number, stimuli, mapping_1)
     }
+}
+
+function one_training_trial(){
+    GameIndex = Math.floor(Math.random() * 9)
+    document.querySelector('.game' + GameIndex).innerHTML = render_hammer
 }
 
 function generate_stimuli() {
@@ -67,11 +71,6 @@ let fraction = 9       // 当前得分
 let timeNumber = 0      // 当前时间
 let timer1 = null       // 第一个计时器
 let timer2 = null       // 第一个计时器
-
-function one_trial(){
-    GameIndex = Math.floor(Math.random() * 9)
-    document.querySelector('.game' + GameIndex).innerHTML = render_hammer
-}
 
 function context_change_into_rose(){
     let element = document.querySelector('.context_cue');
