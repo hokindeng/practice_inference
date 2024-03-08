@@ -62,8 +62,8 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     let stimulus_display_time = new Date().getTime();
     let keyIndex = ''
     let key_press_time = ''
-    let not_hit_yet = true
-    if (not_hit_yet) {
+    document.addEventListener('keydown', key_press);
+    function key_press() {
         document.onkeydown = function (e) {
             switch (e.key) {
                 case 'h':
@@ -82,7 +82,6 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
                     keyIndex = map[4]
                     break
             }
-            not_hit_yet = false
             key_press_time = new Date().getTime();
             if (keyIndex === trial_stimulus_number) {
                 score_number++
@@ -102,6 +101,7 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
                 }, 200) // display only the hammer
             }
         }
+        document.removeEventListener('keydown', key_press);
     }
     setTimeout(function () {
         single_trial_data.push({
