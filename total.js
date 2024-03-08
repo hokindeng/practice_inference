@@ -1,9 +1,23 @@
 // script.js
 
-let start_game = document.querySelector(".start_game")
-let background_music = document.querySelector(".music1")
+let experiment_start_time = new Date().getTime();
+let show_mouse = ` <img src="image/img1.jpg"/>
+            <div class="mouse"><img src="image/mouse.png" style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
 let render_hammer = `<img src="image/img1.jpg"/> <div class="hammer"><img src="image/hammer.png" 
 style="transform: translateX(-70px) translateY(-100px) scale(2) !important;" class="hammer"/></div>`;
+let show_mouse_and_hammer = `
+<img src="image/img1.jpg"/>
+<div class="mouse">
+    <img src="image/mouse.png" style="transform: translateY(100%) !important;" class="mouse_img"/>
+</div>
+<div class="hammer">
+    <img src="image/hammer.png" style="transform: translateX(-70px) translateY(-100px) scale(2) !important;" class="hammer"/>
+</div>
+`;
+
+
+let start_game = document.querySelector(".start_game")
+let background_music = document.querySelector(".music1")
 let mapping_1 = [1, 2, 3, 4, 5]
 let mapping_2 = [1, 2, 3, 4, 5]
 let mapping_3 = [1, 2, 3, 4, 5]
@@ -14,6 +28,7 @@ let score_number = 0
 score.innerHTML = String(score_number)
 let trial_number = 0
 trial.innerHTML = String(trial_number)
+let GameIndex = '0'      // 当前地鼠处于哪个位置
 
 function create_all_mappings(){
     mapping_1 = shuffleArray(mapping_1)
@@ -27,6 +42,7 @@ function redirectToSecondPage() {
     background_music.play()
     context_change_into_rose()
     downloadArrayAsFile(data, "myData.json");
+    document.querySelector('.game' + GameIndex).innerHTML = render_hammer
 }
 
 function training_mapping_1() {
@@ -66,7 +82,6 @@ shuffleArray(numbers);
 console.log(numbers);
 
 
-let GameIndex = ''      // 当前地鼠处于哪个位置
 let fraction = 9       // 当前得分
 let timeNumber = 0      // 当前时间
 let timer1 = null       // 第一个计时器
