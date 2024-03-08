@@ -40,8 +40,8 @@ function redirectToSecondPage() {
     background_music.volume = 0.1
     background_music.play()
     context_change_into_rose()
-    downloadArrayAsFile(data, "myData.json");
-    document.querySelector('.game' + GameIndex).innerHTML = render_hammer
+    // downloadArrayAsFile(data, "myData.json");
+    document.querySelector('.game' + GameIndex).innerHTML = show_mouse
 }
 
 function training_mapping_1() {
