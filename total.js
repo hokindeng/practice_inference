@@ -37,8 +37,8 @@ function training_mapping_1() {
     }
 }
 
-function one_training_trial(){
-    GameIndex = Math.floor(Math.random() * 9)
+function one_training_trial(tr_ial, s_t_i_m_u_l_i, map){
+    GameIndex = s_t_i_m_u_l_i(tr_ial)
     document.querySelector('.game' + GameIndex).innerHTML = render_hammer
 }
 
