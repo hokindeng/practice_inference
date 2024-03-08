@@ -22,6 +22,7 @@ let start_game = document.querySelector(".start_game")
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
 let mapping_3 = [0, 1, 2, 3, 4]
+let current_map = mapping_1
 let data = []; // data for each trial will be stored here
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
@@ -69,27 +70,27 @@ const handleKeyPress = (event) => {
     pressedTime = new Date().getTime(); // Get the current time in milliseconds
     console.log(`A key was pressed at ${pressedTime}`);
     // Remove the event listener after capturing the first key press
-    key_visualization(event, mp)
+    key_visualization(event)
     document.removeEventListener('keydown', handleKeyPress);
 };
 
-function key_visualization(event, mp) {
+function key_visualization(event) {
     let keyIndex = ''
     switch (event.key) {
         case 'h':
-            keyIndex = mp[0]
+            keyIndex = current_map[0]
             break
         case 'u':
-            keyIndex = mp[1]
+            keyIndex = current_map[1]
             break
         case 'i':
-            keyIndex = mp[2]
+            keyIndex = current_map[2]
             break
         case 'l':
-            keyIndex = mp[3]
+            keyIndex = current_map[3]
             break
         case 'b':
-            keyIndex = mp[4]
+            keyIndex = current_map[4]
             break
     }
     if (keyIndex === trial_stimulus_number) {
