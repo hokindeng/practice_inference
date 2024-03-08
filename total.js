@@ -15,9 +15,10 @@ let show_mouse_and_hammer = `
 
 let start_game = document.querySelector(".start_game")
 let background_music = document.querySelector(".music1")
-let mapping_1 = [1, 2, 3, 4, 5]
-let mapping_2 = [1, 2, 3, 4, 5]
-let mapping_3 = [1, 2, 3, 4, 5]
+let mapping_1 = [0, 1, 2, 3, 4]
+let mapping_2 = [0, 1, 2, 3, 4]
+let mapping_3 = [0, 1, 2, 3, 4]
+let game_index_reference = [0 ,2 ,4, 6,8]
 let data = []; // data for each trial will be stored here
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
@@ -39,7 +40,7 @@ function redirectToSecondPage() {
     background_music.play()
     context_change_into_rose()
     // downloadArrayAsFile(data, "myData.json");
-    document.querySelector('.game' + GameIndex).innerHTML = render_hammer
+    document.querySelector('.game' + GameIndex).innerHTML = show_mouse_and_hammer
 }
 
 function training_mapping_1() {
@@ -50,10 +51,31 @@ function training_mapping_1() {
     }
 }
 
-function one_training_trial(tr_ial, s_t_i_m_u_l_i, map){
+function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     GameIndex = s_t_i_m_u_l_i(tr_ial)
-    document.querySelector('.game' + GameIndex).innerHTML = render_hammer
+    document.querySelector('.game' + GameIndex).innerHTML = show_mouse
+    document.onkeydown = function (e) {
+        let keyIndex = ''
+        switch (e.key) {
+            case 'h':
+                keyIndex = 0
+                break
+            case 'u':
+                keyIndex = 1
+                break
+            case 'i':
+                keyIndex = 2
+                break
+            case 'l':
+                keyIndex = 3
+                break
+            case 'b':
+                keyIndex = 4
+                break
+        }
+    }
 }
+
 
 function generate_stimuli() {
     let temp = [0]*20 + [2]*20 + [4]*20 + [6]*20 + [8]*20
