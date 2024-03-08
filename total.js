@@ -35,7 +35,6 @@ function redirectToSecondPage() {
     background_music.volume = 0.1
     background_music.play()
     training_mapping_1()
-    downloadArrayAsFile(data, 'mydata.json')
 }
 
 function training_mapping_1() {
@@ -50,7 +49,6 @@ function training_mapping_1() {
 }
 
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
-    console.log('trial' + tr_ial)
     let single_trial_data = []
     let trial_stimulus_number = s_t_i_m_u_l_i[tr_ial]
     let original_content = document.querySelector('.game' + trial_stimulus_number).innerHTML
