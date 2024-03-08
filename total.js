@@ -1,8 +1,8 @@
 // script.js
 
 let experiment_start_time = new Date().getTime();
-let show_mouse = ` <img src="image/img1.jpg"/>
-            <div class="mouse"><img src="image/mouse.png" style="transform: translateY(0%) !important;" class="mouse_img"/></div>`
+let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
+style="transform: translateX(0px) translateY(0px) !important;" class="mouse"/></div>`;
 let render_hammer = `<img src="image/img1.jpg"/> <div class="hammer"><img src="image/hammer.png" 
 style="transform: translateX(-70px) translateY(-100px) scale(2) !important;" class="hammer"/></div>`;
 let show_mouse_and_hammer = `
@@ -41,7 +41,7 @@ function redirectToSecondPage() {
     background_music.play()
     context_change_into_rose()
     // downloadArrayAsFile(data, "myData.json");
-    document.querySelector('.game' + GameIndex).innerHTML = show_mouse
+    document.querySelector('.game' + 2).innerHTML = show_mouse
 }
 
 function training_mapping_1() {

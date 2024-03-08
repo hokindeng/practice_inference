@@ -143,19 +143,20 @@ img {
     position: relative;
 }
 
+/* Ensure the hammer's container div is positioned relatively */
 .mouse {
-    width: 150px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 20%;
-    height: 156px;
-    overflow: hidden;
+    position: relative;
+    height: 100%; /* Make sure the container has a defined height */
 }
 
-.mouse > img {
-    transform: translateY(100%);
-    transition: all 0.5s;
+/* CSS to resize and position the hammer image inside a div with the class "hammer" */
+.mouse img {
+    position: absolute;
+    top: 0; /* Align to the top of the container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    width: 20%; /* Width is 1/5 of the container's width */
+    height: auto; /* Height adjusts automatically to maintain aspect ratio */
 }
 
 .end_game {
