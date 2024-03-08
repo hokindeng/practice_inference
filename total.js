@@ -21,10 +21,8 @@ let mapping_3 = [0, 1, 2, 3, 4]
 let data = []; // data for each trial will be stored here
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
-let score_number = 0
-score.innerHTML = String(score_number)
-let trial_number = 0
-trial.innerHTML = String(trial_number)
+score.innerHTML = String(0)
+trial.innerHTML = String(0)
 
 function create_all_mappings(){
     mapping_1 = shuffleArray(mapping_1)
@@ -37,25 +35,22 @@ function redirectToSecondPage() {
     background_music.volume = 0.1
     background_music.play()
     training_mapping_1()
-    downloadArrayAsFile(data, "myData.json");
+    downloadArrayAsFile(data, 'mydata.json')
 }
 
 function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
-        let this_trial_data = one_training_trial(trial_number, stimuli, mapping_1)
-        data.push({trial_number: i, trial_data: this_trial_data,});
+        setTimeout(function() {
+            let this_trial_data = one_training_trial(i, stimuli, mapping_1);
+            data.push({trial_number: i, trial_data: this_trial_data});
+        }, 1000 * i); // This ensures that each function call is delayed by 1 second more than the previous one
     }
 }
 
-function bug_check() {
-    console.log("Stop for 2 seconds");
-}
-
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
-    console.log(tr_ial)
-    setTimeout(bug_check, 2000);
+    console.log('trial' + tr_ial)
     let single_trial_data = []
     let trial_stimulus_number = s_t_i_m_u_l_i[tr_ial]
     let original_content = document.querySelector('.game' + trial_stimulus_number).innerHTML
