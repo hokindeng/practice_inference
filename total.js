@@ -37,15 +37,17 @@ function redirectToSecondPage() {
     background_music.volume = 0.1
     background_music.play()
     context_change_into_rose()
-    // downloadArrayAsFile(data, "myData.json");
-    document.querySelector('.game' + 1).innerHTML = show_mouse_and_hammer
+    training_mapping_1()
+    downloadArrayAsFile(data, "myData.json");
 }
 
 function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
-        one_training_trial(trial_number, stimuli, mapping_1)
+        let this_trial_data = one_training_trial(trial_number, stimuli, mapping_1)
+        data.push({trial_number: i, trial_data: this_trial_data,
+    });
     }
 }
 
