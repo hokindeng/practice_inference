@@ -69,27 +69,27 @@ const handleKeyPress = (event) => {
     pressedTime = new Date().getTime(); // Get the current time in milliseconds
     console.log(`A key was pressed at ${pressedTime}`);
     // Remove the event listener after capturing the first key press
-    key_visualization(event)
+    key_visualization(event, mp)
     document.removeEventListener('keydown', handleKeyPress);
 };
 
-function key_visualization(event) {
+function key_visualization(event, mp) {
     let keyIndex = ''
     switch (event.key) {
         case 'h':
-            keyIndex = map[0]
+            keyIndex = mp[0]
             break
         case 'u':
-            keyIndex = map[1]
+            keyIndex = mp[1]
             break
         case 'i':
-            keyIndex = map[2]
+            keyIndex = mp[2]
             break
         case 'l':
-            keyIndex = map[3]
+            keyIndex = mp[3]
             break
         case 'b':
-            keyIndex = map[4]
+            keyIndex = mp[4]
             break
     }
     if (keyIndex === trial_stimulus_number) {
