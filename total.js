@@ -72,6 +72,16 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
                 keyIndex = map(4)
                 break
         }
+        if (keyIndex === GameIndex) {
+            score_number++
+            score.innerHTML = String(score_number)
+            music3.play()
+            GameIndex = ''
+            document.querySelector('.game' + GameIndex).innerHTML = show_mouse_and_hammer
+        } else {
+            // 未按对
+            music2.play()
+        }
     }
 }
 
