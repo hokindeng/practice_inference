@@ -63,44 +63,45 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     let key_press_time = ''
     let not_hit_yet = true
     if (not_hit_yet) {
-    document.onkeydown = function (e) {
-        switch (e.key) {
-            case 'h':
-                keyIndex = map[0]
-                break
-            case 'u':
-                keyIndex = map[1]
-                break
-            case 'i':
-                keyIndex = map[2]
-                break
-            case 'l':
-                keyIndex = map[3]
-                break
-            case 'b':
-                keyIndex = map[4]
-                break
-        }
-        not_hit_yet = false
-        key_press_time = new Date().getTime();
-        if (keyIndex === trial_stimulus_number) {
-            score_number++
-            score.innerHTML = String(score_number)
-            music3.play()
-            setTimeout(function () {
-                document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
-            }, 200) // display hitting the marmot
-        } else {
-            let hammer_exist = document.querySelector('.hammer')
-            if (hammer_exist) {
-                    hammer_exist.parentNode.removeChild(hammer_exist);
+        document.onkeydown = function (e) {
+            switch (e.key) {
+                case 'h':
+                    keyIndex = map[0]
+                    break
+                case 'u':
+                    keyIndex = map[1]
+                    break
+                case 'i':
+                    keyIndex = map[2]
+                    break
+                case 'l':
+                    keyIndex = map[3]
+                    break
+                case 'b':
+                    keyIndex = map[4]
+                    break
             }
-            music2.play()
-            setTimeout(function () {
-                document.querySelector('.game' + keyIndex).innerHTML = render_hammer
-            }, 200) // display only the hammer
+            not_hit_yet = false
+            key_press_time = new Date().getTime();
+            if (keyIndex === trial_stimulus_number) {
+                score_number++
+                score.innerHTML = String(score_number)
+                music3.play()
+                setTimeout(function () {
+                    document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
+                }, 200) // display hitting the marmot
+            } else {
+                let hammer_exist = document.querySelector('.hammer')
+                if (hammer_exist) {
+                    hammer_exist.parentNode.removeChild(hammer_exist);
+                }
+                music2.play()
+                setTimeout(function () {
+                    document.querySelector('.game' + keyIndex).innerHTML = render_hammer
+                }, 200) // display only the hammer
+            }
         }
-    }}
+    }
     single_trial_data.push({
         stimulus_number: trial_stimulus_number,
         key_press_number: keyIndex,
