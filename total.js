@@ -25,7 +25,6 @@ let score_number = 0
 score.innerHTML = String(score_number)
 let trial_number = 0
 trial.innerHTML = String(trial_number)
-let GameIndex = '0'      // 当前地鼠处于哪个位置
 
 function create_all_mappings(){
     mapping_1 = shuffleArray(mapping_1)
@@ -39,7 +38,7 @@ function redirectToSecondPage() {
     background_music.play()
     context_change_into_rose()
     // downloadArrayAsFile(data, "myData.json");
-    document.querySelector('.game' + GameIndex).innerHTML = show_mouse_and_hammer
+    document.querySelector('.game' + 1).innerHTML = show_mouse_and_hammer
 }
 
 function training_mapping_1() {
@@ -51,11 +50,13 @@ function training_mapping_1() {
 }
 
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
-    GameIndex = s_t_i_m_u_l_i(tr_ial)
-    let original_content = document.querySelector('.game' + GameIndex).innerHTML
-    document.querySelector('.game' + GameIndex).innerHTML = show_mouse
+    let single_trial_data = []
+    trial_stimulus_number = s_t_i_m_u_l_i(tr_ial)
+    let original_content = document.querySelector('.game' + trial_stimulus_number).innerHTML
+    document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
+    let stimulus_display_time = new Date().getTime();
+    let keyIndex = ''
     document.onkeydown = function (e) {
-        let keyIndex = ''
         switch (e.key) {
             case 'h':
                 keyIndex = map(0)
@@ -73,13 +74,13 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
                 keyIndex = map(4)
                 break
         }
-        if (keyIndex === GameIndex) {
+        let key_press_time = new Date().getTime();
+        if (keyIndex === trial_stimulus_number) {
             score_number++
             score.innerHTML = String(score_number)
             music3.play()
-            GameIndex = ''
             setTimeout(function () {
-                document.querySelector('.game' + GameIndex).innerHTML = show_mouse_and_hammer
+                document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
             }, 200) // display hitting the marmot
         } else {
             music2.play()
@@ -89,13 +90,16 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
             }, 200) // display only the hammer
             document.querySelector('.game' + keyIndex).innerHTML = temp
         }
-        document.querySelector('.game' + GameIndex).innerHTML = original_content
+        document.querySelector('.game' + trial_stimulus_number).innerHTML = original_content
     }
+    single_trial_data.push({
+      stimulus_number: trial_stimulus_number, key_press_number: keyIndex, stimulus_display_time: stimulus_display_time
+    });
+    return single_trial_data
 }
 
-
 function generate_stimuli() {
-    let temp = [0]*20 + [2]*20 + [4]*20 + [6]*20 + [8]*20
+    let temp = [0]*20 + [1]*20 + [2]*20 + [3]*20 + [4]*20
     shuffleArray(temp)
     return temp
 }
@@ -116,12 +120,6 @@ let numbers = [1, 2, 3, 4, 5];
 shuffleArray(numbers);
 // Log the shuffled array to the console
 console.log(numbers);
-
-
-let fraction = 9       // 当前得分
-let timeNumber = 0      // 当前时间
-let timer1 = null       // 第一个计时器
-let timer2 = null       // 第一个计时器
 
 function context_change_into_rose(){
     let element = document.querySelector('.context_cue');
