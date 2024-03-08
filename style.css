@@ -143,7 +143,7 @@ img {
     position: relative;
 }
 
-/* Ensure the hammer's container div is positioned relatively */
+/* Ensure the mouse's container div is positioned relatively */
 .mouse {
     position: relative;
     height: 100%; /* Make sure the container has a defined height */
@@ -151,6 +151,22 @@ img {
 
 /* CSS to resize and position the hammer image inside a div with the class "hammer" */
 .mouse img {
+    position: absolute;
+    top: 0; /* Align to the top of the container */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    width: 20%; /* Width is 1/5 of the container's width */
+    height: auto; /* Height adjusts automatically to maintain aspect ratio */
+}
+
+/* Ensure the mouse_and_hammer_together's container div is positioned relatively */
+.mouse_and_hammer_together {
+    position: relative;
+    height: 100%; /* Make sure the container has a defined height */
+}
+
+/* CSS to resize and position the hammer image inside a div with the class "hammer" */
+.mouse_and_hammer_together img {
     position: absolute;
     top: 0; /* Align to the top of the container */
     left: 50%; /* Center horizontally */

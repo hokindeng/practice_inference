@@ -2,16 +2,16 @@
 
 let experiment_start_time = new Date().getTime();
 let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
-style="transform: translateX(0px) translateY(0px) !important;" class="mouse"/></div>`;
+style="transform: translateX(-37px) translateY(-90px) scale(1.8) !important;" class="mouse"/></div>`;
 let render_hammer = `<img src="image/img1.jpg"/> <div class="hammer"><img src="image/hammer.png" 
 style="transform: translateX(-70px) translateY(-100px) scale(2) !important;" class="hammer"/></div>`;
 let show_mouse_and_hammer = `
 <img src="image/img1.jpg"/>
-<div class="mouse">
+<div class="mouse_and_hammer_together">
     <img src="image/mouse.png" style="transform: translateY(100%) !important;" class="mouse_img"/>
 </div>
 <div class="hammer">
-    <img src="image/hammer.png" style="transform: translateX(-70px) translateY(-100px) scale(2) !important;" class="hammer"/>
+    <img src="image/hammer.png" style="transform: translateX(-70px) translateY(-100px) scale(2) !important;" class="mouse_and_hammer_together"/>
 </div>
 `;
 
