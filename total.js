@@ -36,7 +36,6 @@ function redirectToSecondPage() {
     start_game.style.top = '-100%'
     background_music.volume = 0.1
     background_music.play()
-    context_change_into_rose()
     training_mapping_1()
     downloadArrayAsFile(data, "myData.json");
 }
@@ -45,6 +44,7 @@ function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
+        console.log('STIMULI' + stimuli)
         let this_trial_data = one_training_trial(trial_number, stimuli, mapping_1)
         data.push({trial_number: i, trial_data: this_trial_data,
     });
@@ -53,7 +53,10 @@ function training_mapping_1() {
 
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     let single_trial_data = []
-    let trial_stimulus_number = s_t_i_m_u_l_i(tr_ial)
+    let trial_stimulus_number = s_t_i_m_u_l_i[tr_ial]
+    console.log(s_t_i_m_u_l_i)
+    console.log(tr_ial)
+    console.log('hERE' + trial_stimulus_number)
     let original_content = document.querySelector('.game' + trial_stimulus_number).innerHTML
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     let stimulus_display_time = new Date().getTime();
@@ -105,7 +108,12 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
 }
 
 function generate_stimuli() {
-    let temp = [0]*20 + [1]*20 + [2]*20 + [3]*20 + [4]*20
+    let temp = [];
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 20; j++) {
+            temp.push(i);
+        }
+    }
     shuffleArray(temp)
     return temp
 }
