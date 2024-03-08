@@ -36,10 +36,18 @@ function create_all_mappings(){
     mapping_3 = shuffleArray(mapping_3)
 }
 
+function playMusicLoop(music) {
+  // Ensure that the music can loop
+  music.loop = true;
+  // Set the volume of the music
+  music.volume = 0.1;
+  // Play the music
+  music.play();
+}
+
 function redirectToSecondPage() {
     start_game.style.top = '-100%'
-    music1.volume = 0.1
-    music1.play()
+    playMusicLoop(music1)
     training_mapping_1()
 }
 
@@ -48,7 +56,7 @@ function training_mapping_1() {
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
         setTimeout(function() {
-            let this_trial_data = one_training_trial_pilot(i, stimuli, mapping_1);
+            let this_trial_data = one_training_trial_pilot(i, stimuli);
             trial.innerHTML = String(i + 1)
             data.push({trial_number: i, trial_data: this_trial_data});
         }, 5000 * i); // This ensures that each function call is delayed by 1 second more than the previous one
@@ -58,6 +66,7 @@ function training_mapping_1() {
 function one_training_trial_pilot(tri, sti) {
     let single_trial_data = []
     trial_stimulus_number = sti[tri]
+    console.log('WHERE IS STI' + trial_stimulus_number)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     setTimeout(function () {
         document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
@@ -75,7 +84,7 @@ const handleKeyPress = (event) => {
 };
 
 function key_visualization(event) {
-    let keyIndex = ''
+    let keyIndex = '-1'
     switch (event.key) {
         case 'h':
             keyIndex = current_map[0]
@@ -100,7 +109,7 @@ function key_visualization(event) {
         setTimeout(function () {
             document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
         }, 200) // display hitting the marmot
-    } else {
+    } else if (keyIndex !== '-1') {
         let hammer_exist = document.querySelector('.hammer')
         if (hammer_exist) {
             hammer_exist.parentNode.removeChild(hammer_exist);
@@ -109,6 +118,9 @@ function key_visualization(event) {
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = render_hammer
         }, 200) // display only the hammer
+        setTimeout(function () {
+            document.querySelector('.game' + keyIndex).innerHTML = render_hammer
+        }, 1000) // display only the hammer
     }
 }
 
