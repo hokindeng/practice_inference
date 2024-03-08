@@ -44,11 +44,14 @@ function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
-        console.log('STIMULI' + stimuli)
         let this_trial_data = one_training_trial(trial_number, stimuli, mapping_1)
-        data.push({trial_number: i, trial_data: this_trial_data,
-    });
+        setTimeout(bug_check, 2000);
+        data.push({trial_number: i, trial_data: this_trial_data,});
     }
+}
+
+function bug_check() {
+    console.log("Stop for 2 seconds");
 }
 
 function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
