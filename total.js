@@ -55,6 +55,9 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
     let single_trial_data = []
     let trial_stimulus_number = s_t_i_m_u_l_i[tr_ial]
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
+    setTimeout(function () {
+        document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
+    }, 5000) // remove hammer
     let stimulus_display_time = new Date().getTime();
     let keyIndex = ''
     let key_press_time = ''
@@ -84,17 +87,14 @@ function one_training_trial(tr_ial, s_t_i_m_u_l_i, map) {
             setTimeout(function () {
                 document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
             }, 200) // display hitting the marmot
-            setTimeout(function () {
-                document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
-            }, 2000) // remove hitting
         } else {
             music2.play()
             setTimeout(function () {
                 document.querySelector('.game' + keyIndex).innerHTML = render_hammer
             }, 200) // display only the hammer
             setTimeout(function () {
-                document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
-            }, 2000) // remove hammer
+                document.querySelector('.game' + keyIndex).innerHTML = empty
+            }, 500) // remove hammer
         }
     }
     single_trial_data.push({
