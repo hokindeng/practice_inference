@@ -36,7 +36,7 @@ function create_all_mappings(){
     mapping_3 = shuffleArray(mapping_3)
 }
 
-function playMusicLoop(music) {
+async function playMusicLoop(music) {
   // Ensure that the music can loop
   music.loop = true;
   // Set the volume of the music
@@ -51,15 +51,13 @@ function redirectToSecondPage() {
     training_mapping_1()
 }
 
-function training_mapping_1() {
+async function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
-        setTimeout(function() {
-            let this_trial_data = one_training_trial_pilot(i, stimuli);
-            trial.innerHTML = String(i + 1)
-            data.push({trial_number: i, trial_data: this_trial_data});
-        }, 5000 * i); // This ensures that each function call is delayed by 1 second more than the previous one
+        let this_trial_data = one_training_trial_pilot(i, stimuli);
+        trial.innerHTML = String(i + 1)
+        data.push({trial_number: i, trial_data: this_trial_data});
     }
 }
 
