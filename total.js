@@ -51,12 +51,17 @@ function redirectToSecondPage() {
     training_mapping_1()
 }
 
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
 async function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
+        await delay(2000); // Wait for 2 seconds
         data.push({trial_number: i, trial_data: this_trial_data});
     }
 }
