@@ -27,6 +27,7 @@ let data = []; // data for each trial will be stored here
 let score = document.querySelector(".score")
 let trial = document.querySelector(".trial")
 let score_number = 0
+let trial_start_time = 0;
 score.innerHTML = String(score_number)
 trial.innerHTML = String(0)
 
@@ -60,10 +61,11 @@ async function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 100; i++) {
+        trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(5000); // Wait for 5 seconds
-        data.push({trial_number: i, trial_data: this_trial_data});
+        data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
 
