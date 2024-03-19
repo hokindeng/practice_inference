@@ -108,21 +108,14 @@ function key_visualization(event) {
         score_number++
         score.innerHTML = String(score_number)
         music3.play()
-        setTimeout(function () {
-            document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
-        }, 200) // display hitting the marmot
+        document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
     } else if (keyIndex !== '-1') {
         let hammer_exist = document.querySelector('.hammer')
         if (hammer_exist) {
             hammer_exist.parentNode.removeChild(hammer_exist);
         }
         music2.play()
-        setTimeout(function () {
-            document.querySelector('.game' + keyIndex).innerHTML = render_hammer
-        }, 200) // display only the hammer
-        setTimeout(function () {
-            document.querySelector('.game' + keyIndex).innerHTML = render_hammer
-        }, 1000) // display only the hammer
+        document.querySelector('.game' + keyIndex).innerHTML = render_hammer
     }
 }
 
