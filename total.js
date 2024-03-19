@@ -17,7 +17,7 @@ let show_mouse_and_hammer = `
 `;
 
 let pressedTime = ''
-let trial_stimulus_number = ''
+let trial_stimulus_number = '-1'
 let start_game = document.querySelector(".start_game")
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
@@ -108,7 +108,7 @@ function key_visualization(event) {
         score_number++
         score.innerHTML = String(score_number)
         music3.play()
-        document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse_and_hammer
+        document.querySelector('.game' + 1).innerHTML = show_mouse_and_hammer
     } else if (keyIndex !== '-1') {
         let hammer_exist = document.querySelector('.hammer')
         if (hammer_exist) {
