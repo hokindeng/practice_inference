@@ -64,7 +64,7 @@ async function training_mapping_1() {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
-        await delay(5000); // Wait for 5 seconds
+        await delay(7000); // Wait for 5 seconds
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
@@ -74,7 +74,7 @@ async function one_training_trial_pilot(tri, sti) {
     trial_stimulus_number = sti[tri]
     console.log('WHERE IS STI' + trial_stimulus_number)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
-    await delay(2000)
+    await delay(3000)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
     return single_trial_data
 }
@@ -109,7 +109,7 @@ function key_visualization(event) {
     }
     console.log('what iswrong heere')
     console.log(pressedTime)
-    if ((pressedTime - trial_start_time) < 2) {
+    if ((pressedTime - trial_start_time) < 3000) {
         keep_displaying = 1;
     }
     if (keyIndex === trial_stimulus_number && keep_displaying) {
@@ -122,7 +122,7 @@ function key_visualization(event) {
         }
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = show_mouse_and_hammer
-        }, 500)
+        }, 1000)
     } else if (keyIndex !== '-1' && keep_displaying) {
         let hammer_exist = document.querySelector('.hammer')
         if (hammer_exist) {
@@ -131,7 +131,7 @@ function key_visualization(event) {
         music2.play()
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = render_hammer
-        }, 500)
+        }, 1000)
     }
 }
 
