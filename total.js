@@ -107,6 +107,10 @@ function key_visualization(event) {
         score_number++
         score.innerHTML = String(score_number)
         music3.play()
+        let hammer_exist = document.querySelector('.hammer')
+        if (hammer_exist) {
+            hammer_exist.parentNode.removeChild(hammer_exist);
+        }
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = show_mouse_and_hammer
         }, 500)
