@@ -125,7 +125,7 @@ function key_visualization(event) {
         }
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = show_mouse_and_hammer
-        }, 10)
+        }, 3)
     } else if (keyIndex !== '-1' && keep_displaying) {
         let hammer_exist = document.querySelector('.hammer')
         if (hammer_exist) {
@@ -134,7 +134,7 @@ function key_visualization(event) {
         music2.play()
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = render_hammer
-        }, 10)
+        }, 3)
     }
 }
 
