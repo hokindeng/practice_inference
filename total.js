@@ -66,14 +66,13 @@ async function training_mapping_1() {
     }
 }
 
-function one_training_trial_pilot(tri, sti) {
+async function one_training_trial_pilot(tri, sti) {
     let single_trial_data = []
     trial_stimulus_number = sti[tri]
     console.log('WHERE IS STI' + trial_stimulus_number)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
-    setTimeout(function () {
-        document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
-    }, 5000) // remove everything
+    await delay(2000)
+    document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
     document.addEventListener('keydown', handleKeyPress);
     return single_trial_data
 }
