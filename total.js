@@ -82,7 +82,6 @@ const handleKeyPress = (event) => {
     console.log(`A key was pressed at ${pressedTime}`);
     // Remove the event listener after capturing the first key press
     key_visualization(event)
-    document.removeEventListener('keydown', handleKeyPress);
 };
 
 function key_visualization(event) {
