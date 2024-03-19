@@ -108,7 +108,7 @@ function key_visualization(event) {
     if ((pressedTime - trial_start_time) < 2) {
         keep_displaying = 1;
     }
-    console.log(pressedTime - trial_start_time)
+    console.log('Time'  + pressedTime - trial_start_time)
     if (keyIndex === trial_stimulus_number && keep_displaying) {
         score_number++
         score.innerHTML = String(score_number)
