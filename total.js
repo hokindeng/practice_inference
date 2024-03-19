@@ -140,13 +140,6 @@ function shuffleArray(array) {
   return array
 }
 
-// Initialize the array with numbers 1 to 5
-let numbers = [1, 2, 3, 4, 5];
-// Shuffle the array to get a random order
-shuffleArray(numbers);
-// Log the shuffled array to the console
-console.log(numbers);
-
 function context_change_into_rose(){
     let element = document.querySelector('.context_cue');
     if (element) {
