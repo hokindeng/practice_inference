@@ -107,14 +107,18 @@ function key_visualization(event) {
         score_number++
         score.innerHTML = String(score_number)
         music3.play()
-        document.querySelector('.game' + 1).innerHTML = show_mouse_and_hammer
+        setTimeout(function () {
+            document.querySelector('.game' + keyIndex).innerHTML = show_mouse_and_hammer
+        }, 500)
     } else if (keyIndex !== '-1') {
         let hammer_exist = document.querySelector('.hammer')
         if (hammer_exist) {
             hammer_exist.parentNode.removeChild(hammer_exist);
         }
         music2.play()
-        document.querySelector('.game' + keyIndex).innerHTML = render_hammer
+        setTimeout(function () {
+            document.querySelector('.game' + keyIndex).innerHTML = render_hammer
+        }, 500)
     }
 }
 
