@@ -58,6 +58,7 @@ function delay(time) {
 async function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
+    document.addEventListener('keydown', handleKeyPress);
     for (let i = 0; i < 100; i++) {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
@@ -73,7 +74,6 @@ async function one_training_trial_pilot(tri, sti) {
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     await delay(2000)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
-    document.addEventListener('keydown', handleKeyPress);
     return single_trial_data
 }
 
