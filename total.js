@@ -81,13 +81,13 @@ async function one_training_trial_pilot(tri, sti) {
 
 const handleKeyPress = (event) => {
     pressedTime = new Date().getTime(); // Get the current time in milliseconds
-    console.log(`A key was pressed at ${pressedTime}`);
     // Remove the event listener after capturing the first key press
     key_visualization(event)
 };
 
 function key_visualization(event) {
     let keyIndex = '-1'
+    let keep_displaying = 0
     switch (event.key) {
         case 'h':
             keyIndex = current_map[0]
@@ -105,7 +105,10 @@ function key_visualization(event) {
             keyIndex = current_map[4]
             break
     }
-    if (keyIndex === trial_stimulus_number) {
+    if ((pressedTime - trial_start_time)< 2) {
+        keep_displaying = 1;
+    }
+    if (keyIndex === trial_stimulus_number && keep_displaying) {
         score_number++
         score.innerHTML = String(score_number)
         music3.play()
@@ -116,7 +119,7 @@ function key_visualization(event) {
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = show_mouse_and_hammer
         }, 500)
-    } else if (keyIndex !== '-1') {
+    } else if (keyIndex !== '-1' && keep_displaying) {
         let hammer_exist = document.querySelector('.hammer')
         if (hammer_exist) {
             hammer_exist.parentNode.removeChild(hammer_exist);
