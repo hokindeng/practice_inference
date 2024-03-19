@@ -62,7 +62,7 @@ async function training_mapping_1() {
     for (let i = 0; i < 100; i++) {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
-        await delay(2000); // Wait for 2 seconds
+        await delay(5000); // Wait for 5 seconds
         data.push({trial_number: i, trial_data: this_trial_data});
     }
 }
