@@ -257,11 +257,10 @@ async function training_inference() {
 
 let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
 let array_or_number_of_training_trials_in_each_inference_mapping = distributeApples(inference_stimuli_sequence)
-
+console.log(array_or_number_of_training_trials_in_each_inference_mapping)
 function distributeApples(bagCount, totalApples, minApples, maxApples) {
     let bags = new Array(bagCount).fill(minApples); // Step 1
     let remainingApples = totalApples - bagCount * minApples; // Initially 60 in this case
-
     // Randomly distribute the remaining apples
     while (remainingApples > 0) {
         for (let i = 0; i < bagCount && remainingApples > 0; i++) {
@@ -278,7 +277,6 @@ function distributeApples(bagCount, totalApples, minApples, maxApples) {
     if (currentTotal !== totalApples) {
         console.error("Total apples mismatch. Adjust the distribution logic.");
     }
-
     return bags;
 }
 
