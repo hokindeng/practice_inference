@@ -22,7 +22,6 @@ let show_mouse_and_hammer = `
 
 let pressedTime = ''
 let trial_stimulus_number = '-1'
-let not_hit_yet = 1
 let start_game = document.querySelector(".start_game")
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
@@ -82,7 +81,6 @@ async function training_mapping_1() {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
-        not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
@@ -96,7 +94,6 @@ async function training_mapping_2() {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
-        not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
@@ -110,7 +107,6 @@ async function training_mapping_3() {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
-        not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
@@ -155,9 +151,8 @@ function key_visualization(event) {
     }
     console.log('what iswrong heere')
     console.log(pressedTime)
-    if ((pressedTime - trial_start_time) < display_hammer_time && not_hit_yet) {
-        keep_displaying = 1;
-        not_hit_yet = 0;
+    if ((pressedTime - trial_start_time) > display_hammer_time) {
+        keep_displaying = -1;
     }
     if (keyIndex === trial_stimulus_number && keep_displaying) {
         score_number++
