@@ -72,6 +72,7 @@ async function run_experiment() {
     await training_mapping_1()
     await training_mapping_2()
     await training_mapping_3()
+    await entering_inference()
 }
 
 function delay(time) {
@@ -240,7 +241,21 @@ function context_change_into_blue(){
 function context_change_into_purple(){
     if (element) {
         element.classList.remove('context_cue_blue');
-        element.classList.add('context_cue_purple');
+        element.classList.add('context_cue');
+    } else {
+        console.log('NOT EXIST AT ALL')
+    }
+}
+
+async function entering_inference(){
+    context_entering_inference_block_make_null()
+    await delay(10000)
+}
+
+function context_entering_inference_block_make_null(){
+    if (element) {
+        element.classList.remove('context_cue_purple');
+        element.classList.add('context');
     } else {
         console.log('NOT EXIST AT ALL')
     }
@@ -249,10 +264,12 @@ function context_change_into_purple(){
 async function training_inference() {
     for (let inference_index = 0; inference_index < inference_stimuli_sequence.length; inference_index++) {
         let inference_mapping_at_this_block = getCurrentMapping(inference_stimuli_sequence[inference_index])
-        let stimuli_sequence_at_this_block = generate_stimuli_for_inference_block(
-            array_or_number_of_training_trials_in_each_inference_mapping[inference_index])
+        let num_of_trials_in_this_block = array_or_number_of_training_trials_in_each_inference_mapping[inference_index]
+        let stimuli_sequence_at_this_block = generate_stimuli_for_inference_block(num_of_trials_in_this_block)
         // go into the inference block
+        for (let j = 0; j < num_of_trials_in_this_block; j++){
 
+        }
     }
 }
 
