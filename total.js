@@ -195,6 +195,19 @@ function generate_stimuli(set_of_stimuli) {
     return temp
 }
 
+function generate_stimuli_for_inference_block(num_of_stimuli) {
+    let n_of_sets = Math.floor(num_of_stimuli / 5);
+    let temp = [];
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < n_of_sets; j++) {
+            temp.push(i);
+        }
+    }
+    shuffleArray(temp)
+    let newArr = temp.slice(0, num_of_stimuli);
+    return newArr
+}
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     // Generate a random index from 0 to i
@@ -234,7 +247,8 @@ function context_change_into_purple(){
 
 async function training_inference() {
     for (let inference_index = 0; inference_index < inference_stimuli_sequence.length; inference_index++) {
-
+        let inference_mapping_at_this_block = getCurrentMapping(inference_stimuli_sequence[inference_index])
+        let stimuli_sequence_at_this_block =
     }
 }
 
