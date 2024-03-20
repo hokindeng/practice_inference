@@ -23,7 +23,7 @@ let start_game = document.querySelector(".start_game")
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
 let mapping_3 = [0, 1, 2, 3, 4]
-create_all_mappings()
+// create_all_mappings()
 
 let current_map = mapping_1
 let data = []; // data for each trial will be stored here
