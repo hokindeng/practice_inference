@@ -370,7 +370,6 @@ function downloadArrayAsFile(array, filename) {
     URL.revokeObjectURL(url);
 }
 
-show_inference_Image()
 // Function to add an image
 function show_inference_Image() {
   // Get the image container
