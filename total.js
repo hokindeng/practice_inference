@@ -249,9 +249,9 @@ function context_change_into_purple(){
 }
 
 async function entering_inference(){
-    context_entering_inference_block_make_null()
     show_inference_Image()
     await delay(10000)
+    context_entering_inference_block_make_null()
 }
 
 function context_entering_inference_block_make_null(){
