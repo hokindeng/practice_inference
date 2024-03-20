@@ -7,6 +7,7 @@ let number_of_trial = 10
 let each_trial_time = 5000
 let marmot_show_time = 3000
 let set_of_stimuli = 20
+let number_of_inference_stimuli_mappings = 15
 let hammer_show_time = marmot_show_time / 2
 let not_hit_yet = 1 // this is to only allow one hit
 let empty = '<div><img src="image/img1.jpg"/></div>'
@@ -254,14 +255,8 @@ async function training_inference() {
 
 }
 
-function isValidSequence(sequence) {
-    for (let i = 1; i < sequence.length; i++) {
-        if (sequence[i] === sequence[i - 1]) {
-            return false;
-        }
-    }
-    return true;
-}
+let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
+let array_or_number_of_training_trials_in_each_inference_mapping = distributeApples(inference_stimuli_sequence)
 
 function distributeApples(bagCount, totalApples, minApples, maxApples) {
     let bags = new Array(bagCount).fill(minApples); // Step 1
@@ -286,6 +281,16 @@ function distributeApples(bagCount, totalApples, minApples, maxApples) {
 
     return bags;
 }
+
+function isValidSequence(sequence) {
+    for (let i = 1; i < sequence.length; i++) {
+        if (sequence[i] === sequence[i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 function generateValidInferenceSequence(n) {
     if (n % 3 !== 0) throw new Error("n must be divisible by 3.");
     // Initialize the sequence with equal numbers of 1, 2, and 3.
