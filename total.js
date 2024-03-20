@@ -271,6 +271,35 @@ function isValidSequence(sequence) {
     return true;
 }
 
+function distributeApples(bagCount, totalApples, minApples, maxApples) {
+    let bags = new Array(bagCount).fill(minApples); // Step 1
+    let remainingApples = totalApples - bagCount * minApples; // Initially 60 in this case
+
+    // Randomly distribute the remaining apples
+    while (remainingApples > 0) {
+        for (let i = 0; i < bagCount && remainingApples > 0; i++) {
+            // Determine the max number that can be added to this bag
+            let maxToAdd = Math.min(maxApples - bags[i], remainingApples);
+            if (maxToAdd > 0) {
+                let add = Math.floor(Math.random() * maxToAdd) + 1;
+                bags[i] += add;
+                remainingApples -= add;
+            }
+        }
+    }
+
+    // Ensure the total is correct (as a double-check and for redistribution if necessary)
+    let currentTotal = bags.reduce((acc, val) => acc + val, 0);
+    if (currentTotal !== totalApples) {
+        console.error("Total apples mismatch. Adjust the distribution logic.");
+    }
+
+    return bags;
+}
+
+// Distribute 150 apples across 15 bags with each bag having 6 to 12 apples
+console.log(distributeApples(15, 150, 6, 12));
+
 function generateValidInferenceSequence(n) {
     if (n % 3 !== 0) throw new Error("n must be divisible by 3.");
     // Initialize the sequence with equal numbers of 1, 2, and 3.
