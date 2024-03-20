@@ -69,7 +69,6 @@ async function run_experiment() {
     await training_mapping_3()
 }
 
-
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
@@ -248,5 +247,17 @@ function downloadArrayAsFile(array, filename) {
     // Clean up by removing the temporary anchor and revoking the Blob URL
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+}
+
+async function training_inference() {
+    let stimuli = generate_stimuli();
+    for (let i = 0; i < number_of_trial; i++) {
+        trial_start_time = new Date().getTime();
+        let this_trial_data = one_training_trial_pilot(i, stimuli);
+        trial.innerHTML = String(i + 1)
+        await delay(each_trial_time); // Wait for 5 seconds
+        not_hit_yet = 1;
+        data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
+    }
 }
 
