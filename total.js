@@ -2,7 +2,8 @@
 let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
-
+let element = document.querySelector('.context_cue');
+let number_of_trial = 1
 let empty = '<div><img src="image/img1.jpg"/></div>'
 let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
 style="transform: translateX(-37px) translateY(-90px) scale(1.8) !important;" class="mouse"/></div>`;
@@ -73,7 +74,7 @@ function delay(time) {
 async function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
@@ -85,9 +86,9 @@ async function training_mapping_1() {
 
 async function training_mapping_2() {
     current_map = mapping_2
-    context_change_into_rose()
+    context_change_into_blue()
     let stimuli = generate_stimuli();
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
@@ -101,7 +102,7 @@ async function training_mapping_3() {
     current_map = mapping_3
     context_change_into_purple()
     let stimuli = generate_stimuli();
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
@@ -200,28 +201,29 @@ function shuffleArray(array) {
 }
 
 function context_change_into_rose(){
-    setTimeout(function () {
-            let element = document.querySelector('.context_cue');
     if (element) {
         element.classList.remove('context_cue');
         element.classList.add('context_cue_rose');
+    } else {
+        console.log('NOT EXIST AT ALL')
     }
-        }, 1000)
 }
 
 function context_change_into_blue(){
-    let element = document.querySelector('.context_cue');
     if (element) {
-        element.classList.remove('context_cue');
+        element.classList.remove('context_cue_rose');
         element.classList.add('context_cue_blue');
+    } else {
+        console.log('NOT EXIST AT ALL')
     }
 }
 
 function context_change_into_purple(){
-    let element = document.querySelector('.context_cue');
     if (element) {
-        element.classList.remove('context_cue');
+        element.classList.remove('context_cue_blue');
         element.classList.add('context_cue_purple');
+    } else {
+        console.log('NOT EXIST AT ALL')
     }
 }
 
