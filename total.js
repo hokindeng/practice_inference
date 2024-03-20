@@ -131,7 +131,7 @@ const handleKeyPress = (event) => {
 
 function key_visualization(event) {
     let keyIndex = '-1'
-    let keep_displaying = 0
+    let keep_displaying = 1
     switch (event.key) {
         case 'h':
             keyIndex = current_map[0]
@@ -158,22 +158,20 @@ function key_visualization(event) {
         score_number++
         score.innerHTML = String(score_number)
         music3.play()
-        let hammer_exist = document.querySelector('.hammer')
-        if (hammer_exist) {
-            hammer_exist.parentNode.removeChild(hammer_exist);
-        }
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = show_mouse_and_hammer
         }, 3)
+        setTimeout(function () {
+            document.querySelector('.game' + keyIndex).innerHTML = empty
+        }, 3 + display_hammer_time)
     } else if (keyIndex !== '-1' && keep_displaying) {
-        let hammer_exist = document.querySelector('.hammer')
-        if (hammer_exist) {
-            hammer_exist.parentNode.removeChild(hammer_exist);
-        }
         music2.play()
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = render_hammer
         }, 3)
+        setTimeout(function () {
+            document.querySelector('.game' + keyIndex).innerHTML = empty
+        }, 3 + display_hammer_time)
     }
 }
 
