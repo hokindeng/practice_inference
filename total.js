@@ -370,4 +370,24 @@ function downloadArrayAsFile(array, filename) {
     URL.revokeObjectURL(url);
 }
 
+show_inference_Image()
+// Function to add an image
+function show_inference_Image() {
+  // Get the image container
+  const container = document.getElementById('inference-image-container');
+
+  // Create an image element
+  const img = document.createElement('img');
+  img.src = 'image/to_start_inference_block.jpg'; // The relative path to your local image
+  img.alt = 'inference instruction'; // Alternative text for the image
+
+  // Add the image to the container
+  container.appendChild(img);
+
+  // Remove the image after 5 seconds (5000 milliseconds)
+  setTimeout(() => {
+    img.remove();
+  }, 5000);
+}
+
 
