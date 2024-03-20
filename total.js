@@ -5,8 +5,8 @@ let music3 = document.querySelector(".music3")
 let element = document.querySelector('.context_cue');
 let number_of_trial = 10
 let each_trial_time = 5000
-let marmot_show_time = 1500
-let display_hammer_time = 1000
+let marmot_show_time = 4000
+let hammer_show_time = marmot_show_time / 2
 let not_hit_yet = 1 // this is to only allow one hit
 let empty = '<div><img src="image/img1.jpg"/></div>'
 let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
@@ -152,8 +152,8 @@ function key_visualization(event) {
     }
     console.log('what iswrong heere')
     console.log(pressedTime)
-    if ((pressedTime - trial_start_time) > display_hammer_time) {
-        keep_displaying = -1;
+    if ((pressedTime - trial_start_time) < marmot_show_time) {
+        keep_displaying = 1;
     }
     if (keyIndex === trial_stimulus_number && keep_displaying) {
         score_number++
@@ -164,7 +164,7 @@ function key_visualization(event) {
         }, 3)
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = empty
-        }, 3 + display_hammer_time)
+        }, 3 + hammer_show_time)
     } else if (keyIndex !== '-1' && keep_displaying) {
         music2.play()
         setTimeout(function () {
@@ -172,7 +172,7 @@ function key_visualization(event) {
         }, 3)
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = empty
-        }, 3 + display_hammer_time)
+        }, 3 + hammer_show_time)
     }
 }
 
