@@ -3,7 +3,10 @@ let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
 let element = document.querySelector('.context_cue');
-let number_of_trial = 1
+let number_of_trial = 10
+let each_trial_time = 5000
+let marmot_show_time = 1500
+let display_hammer_time = 1500
 let empty = '<div><img src="image/img1.jpg"/></div>'
 let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
 style="transform: translateX(-37px) translateY(-90px) scale(1.8) !important;" class="mouse"/></div>`;
@@ -78,7 +81,7 @@ async function training_mapping_1() {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
-        await delay(7000); // Wait for 5 seconds
+        await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
@@ -92,7 +95,7 @@ async function training_mapping_2() {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
-        await delay(7000); // Wait for 5 seconds
+        await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
@@ -106,7 +109,7 @@ async function training_mapping_3() {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
-        await delay(7000); // Wait for 5 seconds
+        await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
@@ -117,7 +120,7 @@ async function one_training_trial_pilot(tri, sti) {
     trial_stimulus_number = sti[tri]
     console.log('WHERE IS STI' + trial_stimulus_number)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
-    await delay(3000)
+    await delay(marmot_show_time)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
     return single_trial_data
 }
@@ -152,7 +155,7 @@ function key_visualization(event) {
     }
     console.log('what iswrong heere')
     console.log(pressedTime)
-    if ((pressedTime - trial_start_time) < 3000 && not_hit_yet) {
+    if ((pressedTime - trial_start_time) < display_hammer_time && not_hit_yet) {
         keep_displaying = 1;
         not_hit_yet = 0;
     }
