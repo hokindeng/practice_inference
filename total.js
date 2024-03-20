@@ -71,7 +71,7 @@ function delay(time) {
 }
 
 async function training_mapping_1() {
-    context_change_into_rose()
+    context_change_into_blue()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 10; i++) {
         trial_start_time = new Date().getTime();
@@ -85,7 +85,7 @@ async function training_mapping_1() {
 
 async function training_mapping_2() {
     current_map = mapping_2
-    context_change_into_blue()
+    context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 10; i++) {
         trial_start_time = new Date().getTime();
