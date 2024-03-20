@@ -297,7 +297,6 @@ function getCurrentMapping(i) {
     } else {
         selectedMapping = null; // Or any default value you prefer
     }
-
     return selectedMapping;
 }
 
