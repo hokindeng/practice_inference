@@ -237,3 +237,13 @@ img {
     width: 20%; /* Width is 1/5 of the container's width */
     height: auto; /* Height adjusts automatically to maintain aspect ratio */
 }
+
+/* CSS styles for centering the div */
+#inference-image-container {
+  position: fixed; /* Position relative to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust the position to truly center the div */
+  z-index: 1000; /* Ensure it's on top of everything else */
+}
+
