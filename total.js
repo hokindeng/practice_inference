@@ -60,8 +60,11 @@ function redirectToSecondPage() {
 }
 
 async function run_experiment() {
+    remove_context()
     await training_mapping_1()
+    remove_context()
     await training_mapping_2()
+    remove_context()
     await training_mapping_3()
 }
 
@@ -198,6 +201,33 @@ function shuffleArray(array) {
   }
   return array
 }
+
+function remove_context(){}
+// Query for elements with specific classes
+let purpleElement = document.querySelector('.context_cue_purple');
+let roseElement = document.querySelector('.context_cue_rose');
+let blueElement = document.querySelector('.context_cue_blue');
+// Check if any of the elements exist
+if (purpleElement || roseElement || blueElement) {
+  console.log("At least one element exists.");
+  // Create a new element to replace the existing ones
+  let newElement = document.createElement('div');
+  newElement.className = 'context_cue'; // Set class of the new element
+  // Replace purpleElement if it exists
+  if (purpleElement) {
+    purpleElement.parentNode.replaceChild(newElement, purpleElement);
+    // If you replace one, you may not want to replace others with the same new element
+  }
+  if (roseElement) {
+    roseElement.parentNode.replaceChild(newElement, roseElement);
+  }
+  if (blueElement) {
+    blueElement.parentNode.replaceChild(newElement, blueElement);
+  }
+} else {
+  console.log("None of the elements exist.");
+}
+
 
 function context_change_into_rose(){
     let element = document.querySelector('.context_cue');
