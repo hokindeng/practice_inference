@@ -52,9 +52,16 @@ async function playMusicLoop(music) {
 function redirectToSecondPage() {
     start_game.style.top = '-100%'
     playMusicLoop(music1)
-    training_mapping_1()
+    run_experiment()
     document.addEventListener('keydown', handleKeyPress);
 }
+
+async function run_experiment() {
+    await training_mapping_1()
+    await training_mapping_2()
+    await training_mapping_3()
+}
+
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -63,7 +70,35 @@ function delay(time) {
 async function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli();
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 10; i++) {
+        trial_start_time = new Date().getTime();
+        let this_trial_data = one_training_trial_pilot(i, stimuli);
+        trial.innerHTML = String(i + 1)
+        await delay(7000); // Wait for 5 seconds
+        not_hit_yet = 1;
+        data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
+    }
+}
+
+async function training_mapping_2() {
+    current_map = mapping_2
+    context_change_into_blue()
+    let stimuli = generate_stimuli();
+    for (let i = 0; i < 10; i++) {
+        trial_start_time = new Date().getTime();
+        let this_trial_data = one_training_trial_pilot(i, stimuli);
+        trial.innerHTML = String(i + 1)
+        await delay(7000); // Wait for 5 seconds
+        not_hit_yet = 1;
+        data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
+    }
+}
+
+async function training_mapping_3() {
+    current_map = mapping_3
+    context_change_into_purple()
+    let stimuli = generate_stimuli();
+    for (let i = 0; i < 10; i++) {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
