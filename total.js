@@ -159,7 +159,7 @@ function key_visualization(event) {
         keep_displaying = 1;
         not_hit_yet = 0;
     }
-    if (keyIndex === trial_stimulus_number && keep_displaying && not_hit_yet) {
+    if (keyIndex === trial_stimulus_number && keep_displaying) {
         score_number++
         score.innerHTML = String(score_number)
         music3.play()
