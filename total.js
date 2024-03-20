@@ -4,8 +4,8 @@ let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
 let element = document.querySelector('.context_cue');
 let number_of_trial = 10
-let each_trial_time = 5000
-let marmot_show_time = 4000
+let each_trial_time = 3000
+let marmot_show_time = 1000
 let hammer_show_time = marmot_show_time / 2
 let not_hit_yet = 1 // this is to only allow one hit
 let empty = '<div><img src="image/img1.jpg"/></div>'
