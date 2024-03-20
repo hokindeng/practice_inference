@@ -296,10 +296,10 @@ function distributeApples(bagCount, totalApples, minApples, maxApples) {
 
     return bags;
 }
-
+bags = distributeApples(15, 150, 6, 12)
 // Distribute 150 apples across 15 bags with each bag having 6 to 12 apples
 console.log(distributeApples(15, 150, 6, 12));
-
+console.log(bags[3])
 function generateValidInferenceSequence(n) {
     if (n % 3 !== 0) throw new Error("n must be divisible by 3.");
     // Initialize the sequence with equal numbers of 1, 2, and 3.
