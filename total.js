@@ -60,11 +60,8 @@ function redirectToSecondPage() {
 }
 
 async function run_experiment() {
-    remove_context()
     await training_mapping_1()
-    remove_context()
     await training_mapping_2()
-    remove_context()
     await training_mapping_3()
 }
 
@@ -74,7 +71,7 @@ function delay(time) {
 }
 
 async function training_mapping_1() {
-    context_change_into_blue()
+    context_change_into_rose()
     let stimuli = generate_stimuli();
     for (let i = 0; i < 10; i++) {
         trial_start_time = new Date().getTime();
@@ -203,11 +200,13 @@ function shuffleArray(array) {
 }
 
 function context_change_into_rose(){
-    let element = document.querySelector('.context_cue');
+    setTimeout(function () {
+            let element = document.querySelector('.context_cue');
     if (element) {
         element.classList.remove('context_cue');
         element.classList.add('context_cue_rose');
     }
+        }, 1000)
 }
 
 function context_change_into_blue(){
