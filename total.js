@@ -204,8 +204,9 @@ function generate_stimuli_for_inference_block(num_of_stimuli) {
         }
     }
     shuffleArray(temp)
-    let newArr = temp.slice(0, num_of_stimuli);
-    return newArr
+    let new_Arr;
+    new_Arr = temp.slice(0, num_of_stimuli);
+    return new_Arr
 }
 
 function shuffleArray(array) {
@@ -248,7 +249,10 @@ function context_change_into_purple(){
 async function training_inference() {
     for (let inference_index = 0; inference_index < inference_stimuli_sequence.length; inference_index++) {
         let inference_mapping_at_this_block = getCurrentMapping(inference_stimuli_sequence[inference_index])
-        let stimuli_sequence_at_this_block =
+        let stimuli_sequence_at_this_block = generate_stimuli_for_inference_block(
+            array_or_number_of_training_trials_in_each_inference_mapping[inference_index])
+        // go into the inference block
+
     }
 }
 
