@@ -27,6 +27,7 @@ create_all_mappings()
 console.log('MAPP1',mapping_1)
 console.log('MAPP2',mapping_2)
 console.log('MAPP3',mapping_3)
+
 let current_map = mapping_1
 let data = []; // data for each trial will be stored here
 let score = document.querySelector(".score")
