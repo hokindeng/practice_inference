@@ -233,7 +233,9 @@ function context_change_into_purple(){
 }
 
 async function training_inference() {
+    for (let inference_index = 0; inference_index < inference_stimuli_sequence.length; inference_index++) {
 
+    }
 }
 
 let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
@@ -283,6 +285,26 @@ function generateValidInferenceSequence(n) {
     } while (!isValidSequence(sequence));
     return sequence;
 }
+
+function getCurrentMapping(i) {
+    let selectedMapping;
+    if (i === 1) {
+        selectedMapping = mapping_1;
+    } else if (i === 2) {
+        selectedMapping = mapping_2;
+    } else if (i === 3) {
+        selectedMapping = mapping_3;
+    } else {
+        selectedMapping = null; // Or any default value you prefer
+    }
+
+    return selectedMapping;
+}
+
+// Example usage
+console.log(getCurrentMapping(1)); // This will print mapping_1
+console.log(getCurrentMapping(2)); // This will print mapping_2
+console.log(getCurrentMapping(4)); // This will print null or your defined default value
 
 function downloadArrayAsFile(array, filename) {
     // Convert the array to a string format (e.g., JSON)
