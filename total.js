@@ -82,6 +82,7 @@ async function training_mapping_1() {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
+        not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
@@ -95,6 +96,7 @@ async function training_mapping_2() {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
+        not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
@@ -108,6 +110,7 @@ async function training_mapping_3() {
         let this_trial_data = one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
+        not_hit_yet = 1;
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
@@ -132,7 +135,7 @@ const handleKeyPress = (event) => {
 
 function key_visualization(event) {
     let keyIndex = '-1'
-    let keep_displaying = 1
+    let keep_displaying = 0
     switch (event.key) {
         case 'h':
             keyIndex = current_map[0]
@@ -152,10 +155,11 @@ function key_visualization(event) {
     }
     console.log('what iswrong heere')
     console.log(pressedTime)
-    if ((pressedTime - trial_start_time) < marmot_show_time) {
+    if ((pressedTime - trial_start_time) < marmot_show_time && not_hit_yet) {
         keep_displaying = 1;
+        not_hit_yet = 0;
     }
-    if (keyIndex === trial_stimulus_number && keep_displaying) {
+    if (keyIndex === trial_stimulus_number && keep_displaying && not_hit_yet) {
         score_number++
         score.innerHTML = String(score_number)
         music3.play()
