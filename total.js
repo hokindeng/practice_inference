@@ -303,7 +303,7 @@ function getCurrentMapping(i) {
 // Example usage
 console.log(getCurrentMapping(1)); // This will print mapping_1
 console.log(getCurrentMapping(2)); // This will print mapping_2
-console.log(getCurrentMapping(4)); // This will print null or your defined default value
+console.log(getCurrentMapping(3)); // This will print null or your defined default value
 
 function downloadArrayAsFile(array, filename) {
     // Convert the array to a string format (e.g., JSON)
