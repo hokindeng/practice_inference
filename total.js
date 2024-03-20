@@ -158,7 +158,7 @@ function key_visualization(event) {
             keyIndex = current_map[4]
             break
     }
-    console.log('what iswrong heere')
+    console.log('what is wrong here')
     console.log(pressedTime)
     if ((pressedTime - trial_start_time) < marmot_show_time && not_hit_yet) {
         keep_displaying = 1;
@@ -262,13 +262,20 @@ function context_entering_inference_block_make_null(){
 }
 
 async function training_inference() {
+    let inference_trial_display_number = 1;
     for (let inference_index = 0; inference_index < inference_stimuli_sequence.length; inference_index++) {
-        let inference_mapping_at_this_block = getCurrentMapping(inference_stimuli_sequence[inference_index])
+        current_map = getCurrentMapping(inference_stimuli_sequence[inference_index])
         let num_of_trials_in_this_block = array_or_number_of_training_trials_in_each_inference_mapping[inference_index]
         let stimuli_sequence_at_this_block = generate_stimuli_for_inference_block(num_of_trials_in_this_block)
         // go into the inference block
         for (let j = 0; j < num_of_trials_in_this_block; j++){
-
+            trial_start_time = new Date().getTime();
+            let this_trial_data = one_training_trial_pilot(j, stimuli_sequence_at_this_block);
+            trial.innerHTML = String(inference_trial_display_number)
+            inference_trial_display_number = inference_trial_display_number + 1;
+            await delay(each_trial_time); // Wait for 5 seconds
+            not_hit_yet = 1;
+            data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
         }
     }
 }
