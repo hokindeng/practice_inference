@@ -7,6 +7,9 @@ let number_of_trial = 10
 let each_trial_time = 5000
 let marmot_show_time = 3000
 let set_of_stimuli = 20
+let trials_of_inference_block = 150
+let min_trial_number_in_a_inference_block = 6
+let max_trial_number_in_a_inference_block = 12
 let number_of_inference_stimuli_mappings = 15
 let hammer_show_time = marmot_show_time / 2
 let not_hit_yet = 1 // this is to only allow one hit
@@ -256,8 +259,11 @@ async function training_inference() {
 }
 
 let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
-let array_or_number_of_training_trials_in_each_inference_mapping = distributeApples(inference_stimuli_sequence)
+console.log(inference_stimuli_sequence)
+let array_or_number_of_training_trials_in_each_inference_mapping = distributeApples(number_of_inference_stimuli_mappings,
+    trials_of_inference_block, min_trial_number_in_a_inference_block, max_trial_number_in_a_inference_block)
 console.log(array_or_number_of_training_trials_in_each_inference_mapping)
+
 function distributeApples(bagCount, totalApples, minApples, maxApples) {
     let bags = new Array(bagCount).fill(minApples); // Step 1
     let remainingApples = totalApples - bagCount * minApples; // Initially 60 in this case
