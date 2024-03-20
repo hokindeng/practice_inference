@@ -6,7 +6,8 @@ let element = document.querySelector('.context_cue');
 let number_of_trial = 10
 let each_trial_time = 5000
 let marmot_show_time = 1500
-let display_hammer_time = 1500
+let display_hammer_time = 1000
+let not_hit_yet = 1 // this is to only allow one hit
 let empty = '<div><img src="image/img1.jpg"/></div>'
 let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
 style="transform: translateX(-37px) translateY(-90px) scale(1.8) !important;" class="mouse"/></div>`;
