@@ -6,6 +6,7 @@ let element = document.querySelector('.context_cue');
 let number_of_trial = 10
 let each_trial_time = 5000
 let marmot_show_time = 3000
+let set_of_stimuli = 20
 let hammer_show_time = marmot_show_time / 2
 let not_hit_yet = 1 // this is to only allow one hit
 let empty = '<div><img src="image/img1.jpg"/></div>'
@@ -75,7 +76,7 @@ function delay(time) {
 
 async function training_mapping_1() {
     context_change_into_rose()
-    let stimuli = generate_stimuli();
+    let stimuli = generate_stimuli(set_of_stimuli);
     for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
@@ -89,7 +90,7 @@ async function training_mapping_1() {
 async function training_mapping_2() {
     current_map = mapping_2
     context_change_into_blue()
-    let stimuli = generate_stimuli();
+    let stimuli = generate_stimuli(set_of_stimuli);
     for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
@@ -103,7 +104,7 @@ async function training_mapping_2() {
 async function training_mapping_3() {
     current_map = mapping_3
     context_change_into_purple()
-    let stimuli = generate_stimuli();
+    let stimuli = generate_stimuli(set_of_stimuli);
     for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
         let this_trial_data = one_training_trial_pilot(i, stimuli);
@@ -179,10 +180,10 @@ function key_visualization(event) {
     }
 }
 
-function generate_stimuli() {
+function generate_stimuli(set_of_stimuli) {
     let temp = [];
     for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < 20; j++) {
+        for (let j = 0; j < set_of_stimuli; j++) {
             temp.push(i);
         }
     }
@@ -260,4 +261,25 @@ async function training_inference() {
         data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
     }
 }
+
+function isValidSequence(sequence) {
+    for (let i = 1; i < sequence.length; i++) {
+        if (sequence[i] === sequence[i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function generateValidInferenceSequence(n) {
+    if (n % 3 !== 0) throw new Error("n must be divisible by 3.");
+    // Initialize the sequence with equal numbers of 1, 2, and 3.
+    let sequence = Array.from({ length: n }, (_, index) => 1 + index % 3);
+    // Shuffle until the sequence is valid (no consecutive numbers are the same).
+    do {
+        shuffleArray(sequence);
+    } while (!isValidSequence(sequence));
+    return sequence;
+}
+
 
