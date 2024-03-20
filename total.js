@@ -250,6 +250,7 @@ function context_change_into_purple(){
 
 async function entering_inference(){
     context_entering_inference_block_make_null()
+    show_inference_Image()
     await delay(10000)
 }
 
@@ -370,7 +371,7 @@ function downloadArrayAsFile(array, filename) {
     URL.revokeObjectURL(url);
 }
 
-// Function to add an image
+// Function to show inference image
 function show_inference_Image() {
   // Get the image container
   const container = document.getElementById('inference-image-container');
@@ -386,7 +387,7 @@ function show_inference_Image() {
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
-  }, 5000);
+  }, 8000);
 }
 
 
