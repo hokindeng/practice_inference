@@ -15,8 +15,8 @@ start_btn.onclick = function () {
     timerMouse()
 }
 
-let innerHtml = ` <img src="image/img1.jpg"/>
-            <div class="mouse"><img src="image/mouse.png" style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
+let innerHtml = ` <img src="../image/img1.jpg"/>
+            <div class="mouse"><img src="../image/mouse.png" style="transform: translateY(100%) !important;" class="mouse_img"/></div>`
 
 let GameIndex = ''      // 当前地鼠处于哪个位置
 let fraction = 0        // 当前得分
