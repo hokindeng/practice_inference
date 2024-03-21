@@ -242,7 +242,7 @@ function context_change_into_blue(){
 function context_change_into_purple(){
     if (element) {
         element.classList.remove('context_cue_blue');
-        element.classList.add('context_cue');
+        element.classList.add('context_cue_purple');
     } else {
         console.log('NOT EXIST AT ALL')
     }
