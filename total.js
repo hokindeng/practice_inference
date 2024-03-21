@@ -89,7 +89,7 @@ async function training_mapping_1() {
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
-        data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
+        data.push({trial_number: i, trial_data: this_trial_data, trial_start: trial_start_time});
     }
 }
 
@@ -103,7 +103,7 @@ async function training_mapping_2() {
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
-        data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
+        data.push({trial_number: i, trial_data: this_trial_data, trial_start: trial_start_time});
     }
 }
 
@@ -117,7 +117,7 @@ async function training_mapping_3() {
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
-        data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
+        data.push({trial_number: i, trial_data: this_trial_data, trial_start: trial_start_time});
     }
 }
 
@@ -201,7 +201,7 @@ function generate_stimuli_for_inference_block(num_of_stimuli) {
     let n_of_sets = Math.floor(num_of_stimuli / 5);
     let temp = [];
     for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < n_of_sets; j++) {
+        for (let j = 0; j < n_of_sets + 1; j++) { // you need one more set to actually cover all
             temp.push(i);
         }
     }
@@ -270,6 +270,7 @@ async function training_inference() {
         let num_of_trials_in_this_block = array_or_number_of_training_trials_in_each_inference_mapping[inference_index]
         let stimuli_sequence_at_this_block = generate_stimuli_for_inference_block(num_of_trials_in_this_block)
         // go into the inference block
+        console.log('num_of_trials_in_this_block', num_of_trials_in_this_block)
         for (let j = 0; j < num_of_trials_in_this_block; j++){
             trial_start_time = new Date().getTime();
             let this_trial_data = one_training_trial_pilot(j, stimuli_sequence_at_this_block);
@@ -277,7 +278,7 @@ async function training_inference() {
             inference_trial_display_number = inference_trial_display_number + 1;
             await delay(each_trial_time); // Wait for 5 seconds
             not_hit_yet = 1;
-            data.push({trial_number: i, trial_data: this_trial_data, trial_start_time});
+            data.push({trial_number: inference_index, trial_data: this_trial_data, trial_start: trial_start_time});
         }
     }
 }
