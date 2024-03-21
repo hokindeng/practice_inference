@@ -266,6 +266,8 @@ function context_entering_inference_block_make_null(){
 async function training_inference() {
     let inference_trial_display_number = 1;
     for (let inference_index = 0; inference_index < inference_stimuli_sequence.length; inference_index++) {
+        console.log('inference_stimuli_sequence', inference_stimuli_sequence)
+        console.log('inference_index', inference_index)
         current_map = getCurrentMapping(inference_stimuli_sequence[inference_index])
         let num_of_trials_in_this_block = array_or_number_of_training_trials_in_each_inference_mapping[inference_index]
         let stimuli_sequence_at_this_block = generate_stimuli_for_inference_block(num_of_trials_in_this_block)
