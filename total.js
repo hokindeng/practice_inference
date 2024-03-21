@@ -273,7 +273,7 @@ async function training_inference() {
         console.log('num_of_trials_in_this_block', num_of_trials_in_this_block)
         for (let j = 0; j < num_of_trials_in_this_block; j++){
             console.log('J', j)
-            console.log('used mapping in this trial')
+            console.log('used mapping in this trial' + current_map + 'WEIRD')
             trial_start_time = new Date().getTime();
             let this_trial_data = one_training_trial_pilot(j, stimuli_sequence_at_this_block);
             trial.innerHTML = String(inference_trial_display_number)
