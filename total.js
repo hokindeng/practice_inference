@@ -72,7 +72,7 @@ function redirectToSecondPage() {
 }
 
 async function run_experiment() {
-    //await training_mapping_1() // rose
+    await training_mapping_1() // rose
     //await training_mapping_2() // blue
     //await training_mapping_3() // purple
     await entering_inference()
@@ -178,7 +178,6 @@ function query_find_current_mapping(){
          return 3
     }
 }
-
 
 function key_visualization_for_mapping(event) {
     let keyIndex = '-1'
