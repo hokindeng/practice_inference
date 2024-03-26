@@ -141,7 +141,7 @@ const handleKeyPress = (event) => {
     pressedTime = new Date().getTime();
     console.log('In handleKeyPress, pressedTime', pressedTime)
     key_visualization_for_mapping(event)
-    if (0) {
+    if (infer_trial_yes) {
         key_visualization_for_inference(event)
     } else {
         key_visualization_for_mapping(event)
@@ -151,7 +151,6 @@ const handleKeyPress = (event) => {
 function key_visualization_for_inference(event){
     let current_mapping_number = query_find_current_mapping()
     let keyIndex = -1
-    infer_trial_yes = 0;
     switch (event.key) {
         case 'a':
             keyIndex = 1
@@ -165,8 +164,10 @@ function key_visualization_for_inference(event){
     }
     if (current_mapping_number === keyIndex) {
         show_mapping_is_correct()
+        infer_trial_yes = 0;
     } else {
         show_mapping_is_wrong()
+        infer_trial_yes = 0;
     }
 }
 
