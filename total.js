@@ -28,6 +28,9 @@ let show_mouse_and_hammer = `
     <img src="image/hammer.png" style="transform: translateX(-90px) translateY(-130px) scale(2) !important;" />
 </div>
 `;
+let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
+let array_or_number_of_training_trials_in_each_inference_mapping = distributeApples(number_of_inference_stimuli_mappings,
+    trials_of_inference_block, min_trial_number_in_a_inference_block, max_trial_number_in_a_inference_block)
 
 let pressedTime = ''
 let trial_stimulus_number = '-1'
@@ -36,9 +39,9 @@ let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
 let mapping_3 = [0, 1, 2, 3, 4]
 create_all_mappings()
-console.log('MAPP1',mapping_1)
-console.log('MAPP2',mapping_2)
-console.log('MAPP3',mapping_3)
+console.log('Initialization, mapping 1',mapping_1)
+console.log('Initialization, mapping 2',mapping_2)
+console.log('Initialization, mapping 3',mapping_3)
 
 let current_map = mapping_1
 let data = []; // data for each trial will be stored here
@@ -127,7 +130,7 @@ async function training_mapping_3() {
 async function one_training_trial_pilot(tri, sti) {
     let single_trial_data = []
     trial_stimulus_number = sti[tri]
-    console.log('WHERE IS STI' + trial_stimulus_number)
+    console.log('In one_training_trial_pilot, stimulus number' + trial_stimulus_number)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     await delay(marmot_show_time)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
@@ -136,7 +139,7 @@ async function one_training_trial_pilot(tri, sti) {
 
 const handleKeyPress = (event) => {
     pressedTime = new Date().getTime();
-    console.log(pressedTime)
+    console.log('In handleKeyPress, pressedTime', pressedTime)
     key_visualization_for_mapping(event)
     //if (0) {
         //key_visualization_for_inference(event)
@@ -199,8 +202,6 @@ function key_visualization_for_mapping(event) {
             keyIndex = current_map[4]
             break
     }
-    console.log('what is wrong here')
-    console.log(pressedTime)
     if ((pressedTime - trial_start_time) < marmot_show_time && not_hit_yet) {
         keep_displaying = 1;
         not_hit_yet = 0;
@@ -266,7 +267,7 @@ function context_change_into_rose(){
         element.classList.remove('context_cue');
         element.classList.add('context_cue_rose');
     } else {
-        console.log('NOT EXIST AT ALL')
+        console.log('In context_change_into_rose: Failed')
     }
 }
 
@@ -275,7 +276,7 @@ function context_change_into_blue(){
         element.classList.remove('context_cue_rose');
         element.classList.add('context_cue_blue');
     } else {
-        console.log('NOT EXIST AT ALL')
+        console.log('In context_change_into_blue: Failed')
     }
 }
 
@@ -284,7 +285,7 @@ function context_change_into_purple(){
         element.classList.remove('context_cue_blue');
         element.classList.add('context_cue_purple');
     } else {
-        console.log('NOT EXIST AT ALL')
+        console.log('In context_change_into_purple: Failed')
     }
 }
 
@@ -299,23 +300,23 @@ function context_entering_inference_block_make_null(){
         element.classList.remove('context_cue_purple');
         element.classList.add('context');
     } else {
-        console.log('NOT EXIST AT ALL')
+        console.log('In context_entering_inference_block_make_null: failed')
     }
 }
 
 async function training_inference() {
     let inference_trial_display_number = 1;
     for (let inference_index = 0; inference_index < inference_stimuli_sequence.length; inference_index++) {
-        console.log('inference_stimuli_sequence', inference_stimuli_sequence)
-        console.log('inference_index', inference_index)
+        console.log('In training_inference, inference_stimuli_sequence', inference_stimuli_sequence)
+        console.log('In training_inference, inference_index', inference_index)
         current_map = getCurrentMapping(inference_stimuli_sequence[inference_index])
         let num_of_trials_in_this_block = array_or_number_of_training_trials_in_each_inference_mapping[inference_index]
         let stimuli_sequence_at_this_block = generate_stimuli_for_inference_block(num_of_trials_in_this_block)
         // go into the inference block
-        console.log('num_of_trials_in_this_block', num_of_trials_in_this_block)
+        console.log('In training_inference, num_of_trials_in_this_block', num_of_trials_in_this_block)
         for (let j = 0; j < num_of_trials_in_this_block; j++){
-            console.log('J', j)
-            console.log('used mapping in this trial' + current_map + 'WEIRD')
+            console.log('In training_inference, j of the trial', j)
+            console.log('In training_inference, used mapping in this trial' + current_map)
             trial_start_time = new Date().getTime();
             let this_trial_data = one_training_trial_pilot(j, stimuli_sequence_at_this_block);
             trial.innerHTML = String(inference_trial_display_number)
@@ -335,12 +336,6 @@ async function inference_trial_show_image(){
     show_infer_current_trial_image();
     await delay(inference_trial_time + 4000)
 }
-
-let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
-console.log(inference_stimuli_sequence)
-let array_or_number_of_training_trials_in_each_inference_mapping = distributeApples(number_of_inference_stimuli_mappings,
-    trials_of_inference_block, min_trial_number_in_a_inference_block, max_trial_number_in_a_inference_block)
-console.log(array_or_number_of_training_trials_in_each_inference_mapping)
 
 function distributeApples(bagCount, totalApples, minApples, maxApples) {
     let bags = new Array(bagCount).fill(minApples); // Step 1
