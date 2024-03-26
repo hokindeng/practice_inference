@@ -411,7 +411,7 @@ function show_infer_current_block() {
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
-  }, 5);
+  }, 5000);
 }
 
 
