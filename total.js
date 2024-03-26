@@ -137,11 +137,12 @@ async function one_training_trial_pilot(tri, sti) {
 const handleKeyPress = (event) => {
     pressedTime = new Date().getTime();
     console.log(pressedTime)
-    if (infer_trial_yes) {
-        key_visualization_for_inference(event)
-    } else {
-        key_visualization_for_mapping(event)
-    }
+    key_visualization_for_mapping(event)
+    //if (0) {
+        //key_visualization_for_inference(event)
+    //} else {
+    //    key_visualization_for_mapping(event)
+    //}
 };
 
 function key_visualization_for_inference(event){
@@ -177,7 +178,6 @@ function query_find_current_mapping(){
          return 3
     }
 }
-
 
 
 function key_visualization_for_mapping(event) {
@@ -323,9 +323,9 @@ async function training_inference() {
             inference_trial_display_number = inference_trial_display_number + 1;
             await delay(each_trial_time); // Wait for 5 seconds
             not_hit_yet = 1;
-            if (Math.random() < probability_of_inference_trial_occur) {
-                await inference_trial_show_image();
-            }
+            //if (Math.random() < probability_of_inference_trial_occur) {
+            //    await inference_trial_show_image();
+            //}
             data.push({trial_number: inference_index, trial_data: this_trial_data, trial_start: trial_start_time});
         }
     }
