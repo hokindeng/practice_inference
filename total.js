@@ -158,6 +158,8 @@ function query_find_current_mapping(){
      if (current_map === mapping_3) {
         return 3
     }
+
+     infer_trial_yes = 0;
 }
 
 
