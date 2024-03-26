@@ -1,5 +1,6 @@
 // script.js
 let probability_of_inference_trial_occur = .1
+let correct_wrong_image_show_time = 2000
 let infer_trial_yes = 0
 let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
@@ -335,7 +336,7 @@ async function training_inference() {
 async function inference_trial_show_image(){
     infer_trial_yes = 1;
     show_infer_current_trial_image();
-    await delay(inference_trial_time + 4000)
+    await delay(inference_trial_time + correct_wrong_image_show_time)
 }
 
 function distributeApples(bagCount, totalApples, minApples, maxApples) {
@@ -460,7 +461,7 @@ function show_mapping_is_correct() {
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
-  }, 3000);
+  }, correct_wrong_image_show_time);
 }
 
 function show_mapping_is_wrong() {
@@ -475,7 +476,7 @@ function show_mapping_is_wrong() {
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
-  }, 3000);
+  }, correct_wrong_image_show_time);
 }
 
 
