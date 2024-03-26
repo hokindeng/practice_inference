@@ -464,6 +464,25 @@ function show_infer_current_trial_image() {
   }, inference_trial_time);
 }
 
+// Function to show infer current block image
+function show_correct_image() {
+  // Get the image container
+  const container = document.getElementById('correct-container');
+
+  // Create an image element
+  const img = document.createElement('img');
+  img.src = 'image/correct.jpg'; // The relative path to your local image
+  img.alt = 'correct'; // Alternative text for the image
+
+  // Add the image to the container
+  container.appendChild(img);
+
+  // Remove the image after 5 seconds (5000 milliseconds)
+  setTimeout(() => {
+    img.remove();
+  }, 2000);
+}
+
 
 
 
