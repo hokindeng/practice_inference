@@ -1,4 +1,5 @@
 // script.js
+let infer_trial_yes = 0
 let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
@@ -136,11 +137,10 @@ const handleKeyPress = (event) => {
     pressedTime = new Date().getTime();
     console.log(pressedTime)
     // Get the current time in milliseconds
-    // Remove the event listener after capturing the first key press
-    key_visualization(event)
+    key_visualization_for_mapping(event)
 };
 
-function key_visualization(event) {
+function key_visualization_for_mapping(event) {
     let keyIndex = '-1'
     let keep_displaying = 0
     switch (event.key) {
@@ -283,7 +283,7 @@ async function training_inference() {
             inference_trial_display_number = inference_trial_display_number + 1;
             await delay(each_trial_time); // Wait for 5 seconds
             not_hit_yet = 1;
-            inference_trial_show_image();
+            await inference_trial_show_image();
             data.push({trial_number: inference_index, trial_data: this_trial_data, trial_start: trial_start_time});
         }
     }
@@ -291,7 +291,7 @@ async function training_inference() {
 
 async function inference_trial_show_image(){
     show_infer_current_trial_image();
-    await delay(infer_trial_time + 1000)
+    await delay(inference_trial_time + 1000)
 }
 
 let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
