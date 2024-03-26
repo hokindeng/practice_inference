@@ -144,11 +144,21 @@ const handleKeyPress = (event) => {
     }
 };
 
-function key_visualization_for_inference(){
+function key_visualization_for_inference(event){
     let current_mapping_number = query_find_current_mapping()
     let keyIndex = '-1'
     infer_trial_yes = 0;
-
+    switch (event.key) {
+        case 'a':
+            keyIndex = 1
+            break
+        case 's':
+            keyIndex = 2
+            break
+        case 'd':
+            keyIndex = 3
+            break
+    }
 }
 
 function query_find_current_mapping(){
