@@ -146,6 +146,8 @@ const handleKeyPress = (event) => {
 
 function key_visualization_for_inference(){
     let current_mapping_number = query_find_current_mapping()
+    let keyIndex = '-1'
+    infer_trial_yes = 0;
 
 }
 
@@ -156,12 +158,11 @@ function query_find_current_mapping(){
     if (current_map === mapping_2) {
         return 2
     }
-     if (current_map === mapping_3) {
-        return 3
+    if (current_map === mapping_3) {
+         return 3
     }
-
-     infer_trial_yes = 0;
 }
+
 
 
 function key_visualization_for_mapping(event) {
