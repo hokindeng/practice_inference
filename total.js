@@ -12,6 +12,7 @@ let min_trial_number_in_a_inference_block = 6
 let max_trial_number_in_a_inference_block = 12
 let number_of_inference_stimuli_mappings = 15
 let hammer_show_time = marmot_show_time / 2
+let inference_trial_time = 5000
 let not_hit_yet = 1 // this is to only allow one hit
 let empty = '<div><img src="image/img1.jpg"/></div>'
 let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
@@ -282,15 +283,15 @@ async function training_inference() {
             inference_trial_display_number = inference_trial_display_number + 1;
             await delay(each_trial_time); // Wait for 5 seconds
             not_hit_yet = 1;
-            drop_an_inference_block();
+            inference_trial_show_image();
             data.push({trial_number: inference_index, trial_data: this_trial_data, trial_start: trial_start_time});
         }
     }
 }
 
-async function drop_an_inference_block(){
-    show_infer_current_block();
-
+async function inference_trial_show_image(){
+    show_infer_current_trial_image();
+    await delay(infer_trial_time + 1000)
 }
 
 let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
@@ -402,7 +403,7 @@ function show_inference_Image() {
 }
 
 // Function to show infer current block image
-function show_infer_current_block() {
+function show_infer_current_trial_image() {
   // Get the image container
   const container = document.getElementById('infer-current-container');
 
@@ -417,7 +418,7 @@ function show_infer_current_block() {
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
-  }, 5000);
+  }, inference_trial_time);
 }
 
 
