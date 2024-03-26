@@ -15,7 +15,7 @@ let min_trial_number_in_a_inference_block = 6
 let max_trial_number_in_a_inference_block = 12
 let number_of_inference_stimuli_mappings = 15
 let hammer_show_time = marmot_show_time / 2
-let inference_trial_time = 5000
+let inference_trial_time = 3000
 let not_hit_yet = 1 // this is to only allow one hit
 let empty = '<div><img src="image/img1.jpg"/></div>'
 let show_mouse = `<img src="image/img1.jpg"/> <div class="mouse"><img src="image/mouse.png" 
