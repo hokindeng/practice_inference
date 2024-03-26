@@ -460,7 +460,7 @@ function show_mapping_is_correct() {
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
-  }, 2000);
+  }, 3000);
 }
 
 function show_mapping_is_wrong() {
@@ -475,7 +475,7 @@ function show_mapping_is_wrong() {
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
-  }, 2000);
+  }, 3000);
 }
 
 
