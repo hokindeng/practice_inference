@@ -164,10 +164,10 @@ function key_visualization_for_inference(event){
     }
     if (current_mapping_number === keyIndex) {
         show_mapping_is_correct()
-        infer_trial_yes = 0;
+        infer_trial_yes = 0; // handle an infer key press
     } else {
         show_mapping_is_wrong()
-        infer_trial_yes = 0;
+        infer_trial_yes = 0; // handle an infer key press
     }
 }
 
@@ -324,9 +324,9 @@ async function training_inference() {
             inference_trial_display_number = inference_trial_display_number + 1;
             await delay(each_trial_time); // Wait for 5 seconds
             not_hit_yet = 1;
-            //if (Math.random() < probability_of_inference_trial_occur) {
-            //    await inference_trial_show_image();
-            //}
+            if (Math.random() < probability_of_inference_trial_occur) {
+                await inference_trial_show_image();
+            }
             data.push({trial_number: inference_index, trial_data: this_trial_data, trial_start: trial_start_time});
         }
     }
