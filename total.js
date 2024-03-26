@@ -464,7 +464,7 @@ function show_infer_current_trial_image() {
   }, inference_trial_time);
 }
 
-function show_correct_image() {
+function show_mapping_is_correct() {
   // Get the image container
   const container = document.getElementById('correct-container');
 
@@ -482,7 +482,7 @@ function show_correct_image() {
   }, 2000);
 }
 
-function show_wrong_image() {
+function show_mapping_is_wrong() {
   // Get the image container
   const container = document.getElementById('wrong-container');
 
