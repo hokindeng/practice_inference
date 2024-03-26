@@ -71,9 +71,9 @@ function redirectToSecondPage() {
 }
 
 async function run_experiment() {
-    //await training_mapping_1()
-    //await training_mapping_2()
-    //await training_mapping_3()
+    //await training_mapping_1() // rose
+    //await training_mapping_2() // blue
+    //await training_mapping_3() // purple
     await entering_inference()
     await training_inference()
 }
@@ -142,6 +142,24 @@ const handleKeyPress = (event) => {
         key_visualization_for_mapping(event)
     }
 };
+
+function key_visualization_for_inference(){
+    let current_mapping_number = query_find_current_mapping()
+
+}
+
+function query_find_current_mapping(){
+    if (current_map === mapping_1) {
+        return 1
+    }
+    if (current_map === mapping_2) {
+        return 2
+    }
+     if (current_map === mapping_3) {
+        return 3
+    }
+}
+
 
 function key_visualization_for_mapping(event) {
     let keyIndex = '-1'
