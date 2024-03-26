@@ -419,15 +419,12 @@ function downloadArrayAsFile(array, filename) {
 function show_inference_Image() {
   // Get the image container
   const container = document.getElementById('inference-image-container');
-
   // Create an image element
   const img = document.createElement('img');
   img.src = 'image/to_start_inference_block.jpg'; // The relative path to your local image
   img.alt = 'inference instruction'; // Alternative text for the image
-
   // Add the image to the container
   container.appendChild(img);
-
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
@@ -438,15 +435,12 @@ function show_inference_Image() {
 function show_infer_current_trial_image() {
   // Get the image container
   const container = document.getElementById('infer-current-container');
-
   // Create an image element
   const img = document.createElement('img');
   img.src = 'image/infer_current_mapping.jpg'; // The relative path to your local image
   img.alt = 'infer current block'; // Alternative text for the image
-
   // Add the image to the container
   container.appendChild(img);
-
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
@@ -456,15 +450,12 @@ function show_infer_current_trial_image() {
 function show_mapping_is_correct() {
   // Get the image container
   const container = document.getElementById('correct-container');
-
   // Create an image element
   const img = document.createElement('img');
   img.src = 'image/correct.jpg'; // The relative path to your local image
   img.alt = 'correct'; // Alternative text for the image
-
   // Add the image to the container
   container.appendChild(img);
-
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
@@ -474,15 +465,12 @@ function show_mapping_is_correct() {
 function show_mapping_is_wrong() {
   // Get the image container
   const container = document.getElementById('wrong-container');
-
   // Create an image element
   const img = document.createElement('img');
   img.src = 'image/wrong.jpg'; // The relative path to your local image
   img.alt = 'correct'; // Alternative text for the image
-
   // Add the image to the container
   container.appendChild(img);
-
   // Remove the image after 5 seconds (5000 milliseconds)
   setTimeout(() => {
     img.remove();
