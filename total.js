@@ -395,4 +395,23 @@ function show_inference_Image() {
   }, 8000);
 }
 
+// Function to show infer current block image
+function show_infer_current_block() {
+  // Get the image container
+  const container = document.getElementById('infer-current-container');
+
+  // Create an image element
+  const img = document.createElement('img');
+  img.src = 'image/infer_current_mapping.jpg'; // The relative path to your local image
+  img.alt = 'infer current block'; // Alternative text for the image
+
+  // Add the image to the container
+  container.appendChild(img);
+
+  // Remove the image after 5 seconds (5000 milliseconds)
+  setTimeout(() => {
+    img.remove();
+  }, 5);
+}
+
 
