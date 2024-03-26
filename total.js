@@ -1,4 +1,5 @@
 // script.js
+let probability_of_inference_trial_occur = .1
 let infer_trial_yes = 0
 let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
@@ -306,13 +307,16 @@ async function training_inference() {
             inference_trial_display_number = inference_trial_display_number + 1;
             await delay(each_trial_time); // Wait for 5 seconds
             not_hit_yet = 1;
-            await inference_trial_show_image();
+            if (Math.random() < probability_of_inference_trial_occur) {
+                await inference_trial_show_image();
+            }
             data.push({trial_number: inference_index, trial_data: this_trial_data, trial_start: trial_start_time});
         }
     }
 }
 
 async function inference_trial_show_image(){
+    infer_trial_yes = 1;
     show_infer_current_trial_image();
     await delay(inference_trial_time + 1000)
 }
