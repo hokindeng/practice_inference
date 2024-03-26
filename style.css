@@ -238,7 +238,6 @@ img {
     height: auto; /* Height adjusts automatically to maintain aspect ratio */
 }
 
-/* CSS styles for centering the div */
 #inference-image-container {
   position: fixed; /* Position relative to the viewport */
   top: 50%; /* Center vertically */
@@ -247,8 +246,23 @@ img {
   z-index: 1000; /* Ensure it's on top of everything else */
 }
 
-/* CSS styles for centering the div */
 #infer-current-container {
+  position: fixed; /* Position relative to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust the position to truly center the div */
+  z-index: 1000; /* Ensure it's on top of everything else */
+}
+
+#correct-container {
+  position: fixed; /* Position relative to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust the position to truly center the div */
+  z-index: 1000; /* Ensure it's on top of everything else */
+}
+
+#wrong-container {
   position: fixed; /* Position relative to the viewport */
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
