@@ -136,8 +136,11 @@ async function one_training_trial_pilot(tri, sti) {
 const handleKeyPress = (event) => {
     pressedTime = new Date().getTime();
     console.log(pressedTime)
-    // Get the current time in milliseconds
-    key_visualization_for_mapping(event)
+    if (infer_trial_yes) {
+        key_visualization_for_inference(event)
+    } else {
+        key_visualization_for_mapping(event)
+    }
 };
 
 function key_visualization_for_mapping(event) {
