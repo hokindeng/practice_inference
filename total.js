@@ -334,7 +334,7 @@ async function training_inference() {
 async function inference_trial_show_image(){
     infer_trial_yes = 1;
     show_infer_current_trial_image();
-    await delay(inference_trial_time + 1000)
+    await delay(inference_trial_time + 4000)
 }
 
 let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
@@ -463,5 +463,7 @@ function show_infer_current_trial_image() {
     img.remove();
   }, inference_trial_time);
 }
+
+
 
 
