@@ -141,11 +141,11 @@ const handleKeyPress = (event) => {
     pressedTime = new Date().getTime();
     console.log('In handleKeyPress, pressedTime', pressedTime)
     key_visualization_for_mapping(event)
-    //if (0) {
-        //key_visualization_for_inference(event)
-    //} else {
-    //    key_visualization_for_mapping(event)
-    //}
+    if (0) {
+        key_visualization_for_inference(event)
+    } else {
+        key_visualization_for_mapping(event)
+    }
 };
 
 function key_visualization_for_inference(event){
