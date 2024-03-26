@@ -354,7 +354,7 @@ function distributeApples(bagCount, totalApples, minApples, maxApples) {
     }
     let currentTotal = bags.reduce((acc, val) => acc + val, 0);
     if (currentTotal !== totalApples) {
-        console.error("Total apples mismatch. Adjust the distribution logic.");
+        console.error("In distributeApples, Total apples mismatch. Adjust the distribution logic.");
     }
     return bags;
 }
@@ -392,11 +392,6 @@ function getCurrentMapping(i) {
     }
     return selectedMapping;
 }
-
-// Example usage
-console.log(getCurrentMapping(1)); // This will print mapping_1
-console.log(getCurrentMapping(2)); // This will print mapping_2
-console.log(getCurrentMapping(3)); // This will print null or your defined default value
 
 function downloadArrayAsFile(array, filename) {
     // Convert the array to a string format (e.g., JSON)
