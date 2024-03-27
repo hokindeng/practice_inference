@@ -231,7 +231,7 @@ function store_a_mapping_trial_data(){
       thisTrialStartTime: trial_start_time,
       thisTrialHammerShowTime: hammer_show_time,
       thisTrialMarmotShowTime: marmot_show_time,
-      thisTrialKeyPressTime: pressedTime,
+      thisTrialKeyPressTime: pressedTime, thisTrialCurrentMap: current_map,
       thisTrialScoreNumber: score_number,
   });
 }
