@@ -92,11 +92,10 @@ async function training_mapping_1() {
     let stimuli = generate_stimuli(set_of_stimuli);
     for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
-        let this_trial_data = one_training_trial_pilot(i, stimuli);
+        await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
-        data.push({trial_number: i, trial_data: this_trial_data, trial_start: trial_start_time});
     }
 }
 
@@ -106,11 +105,10 @@ async function training_mapping_2() {
     let stimuli = generate_stimuli(set_of_stimuli);
     for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
-        let this_trial_data = one_training_trial_pilot(i, stimuli);
+        await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
-        data.push({trial_number: i, trial_data: this_trial_data, trial_start: trial_start_time});
     }
 }
 
