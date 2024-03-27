@@ -481,8 +481,8 @@ function show_selected_context(context_number) {
   if (context_number === 2) {
       context_change_into_blue()
   }
-  if (context_number === 2) {
-      context_change_into_blue()
+  if (context_number === 3) {
+      context_change_into_purple()
   }
   setTimeout(() => {
     context_entering_inference_block_make_null();
