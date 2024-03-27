@@ -333,7 +333,6 @@ async function training_inference() {
     }
 }
 
-
 async function inference_trial_show_image(){
     infer_trial_yes = 1;
     show_infer_current_trial_image();
@@ -361,7 +360,6 @@ function distributeApples(bagCount, totalApples, minApples, maxApples) {
     }
     return bags;
 }
-
 
 function isValidSequence(sequence) {
     for (let i = 1; i < sequence.length; i++) {
