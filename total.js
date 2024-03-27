@@ -224,6 +224,9 @@ function key_visualization_for_mapping(event) {
         }, 3 + hammer_show_time)
     }
 }
+function store_a_mapping_trial_data(){
+
+}
 
 function generate_stimuli(set_of_stimuli) {
     let temp = [];
