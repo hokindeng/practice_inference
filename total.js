@@ -120,22 +120,19 @@ async function training_mapping_3() {
     let stimuli = generate_stimuli(set_of_stimuli);
     for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
-        let this_trial_data = one_training_trial_pilot(i, stimuli);
+        await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time); // Wait for 5 seconds
         not_hit_yet = 1;
-        data.push({trial_number: i, trial_data: this_trial_data, trial_start: trial_start_time});
     }
 }
 
 async function one_training_trial_pilot(tri, sti) {
-    let single_trial_data = []
     trial_stimulus_number = sti[tri]
     console.log('In one_training_trial_pilot, stimulus number' + trial_stimulus_number)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = show_mouse
     await delay(marmot_show_time)
     document.querySelector('.game' + trial_stimulus_number).innerHTML = empty
-    return single_trial_data
 }
 
 const handleKeyPress = (event) => {
@@ -320,7 +317,7 @@ async function training_inference() {
             console.log('In training_inference, j of the trial', j)
             console.log('In training_inference, used mapping in this trial' + current_map)
             trial_start_time = new Date().getTime();
-            let this_trial_data = one_training_trial_pilot(j, stimuli_sequence_at_this_block);
+            await one_training_trial_pilot(j, stimuli_sequence_at_this_block);
             trial.innerHTML = String(inference_trial_display_number)
             inference_trial_display_number = inference_trial_display_number + 1;
             await delay(each_trial_time); // Wait for 5 seconds
@@ -328,7 +325,6 @@ async function training_inference() {
             if (Math.random() < probability_of_inference_trial_occur) {
                 await inference_trial_show_image();
             }
-            data.push({trial_number: inference_index, trial_data: this_trial_data, trial_start: trial_start_time});
         }
     }
 }
