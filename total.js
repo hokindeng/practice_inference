@@ -76,9 +76,9 @@ function redirectToSecondPage() {
 }
 
 async function run_experiment() {
-    await training_mapping_1() // rose
-    await training_mapping_2() // blue
-    await training_mapping_3() // purple
+    //await training_mapping_1() // rose
+    //await training_mapping_2() // blue
+    //await training_mapping_3() // purple
     await entering_inference()
     await training_inference()
 }
@@ -146,7 +146,7 @@ const handleKeyPress = (event) => {
 
 function key_visualization_for_inference(event){
     let current_mapping_number = query_find_current_mapping()
-    show_selected_context();
+    show_selected_context(current_mapping_number);
     let keyIndex = -1
     switch (event.key) {
         case 'a':
