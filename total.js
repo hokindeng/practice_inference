@@ -233,6 +233,7 @@ function store_a_mapping_trial_data(){
       thisTrialMarmotShowTime: marmot_show_time,
       thisTrialKeyPressTime: pressedTime, thisTrialCurrentMap: current_map,
       thisTrialScoreNumber: score_number,
+
   });
 }
 
