@@ -224,8 +224,20 @@ function key_visualization_for_mapping(event) {
         }, 3 + hammer_show_time)
     }
 }
-function store_a_mapping_trial_data(){
 
+function store_a_mapping_trial_data(){
+    data.push({
+      trail_type: 'm',
+      thisTrialStartTime: trial_start_time,
+      thisTrialHammerShowTime: hammer_show_time,
+      thisTrialMarmotShowTime: marmot_show_time,
+      targetPositionY: target.y,
+      targetNumber: trials,
+      blockNumber: blockScores.length,
+      identifier: identifier,
+      canvasWidth: canvas.offsetWidth,
+      canvasHeight: canvas.offsetHeight
+  });
 }
 
 function generate_stimuli(set_of_stimuli) {
