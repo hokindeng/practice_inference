@@ -1,5 +1,5 @@
 // script.js
-let probability_of_inference_trial_occur = .1
+let probability_of_inference_trial_occur = .5
 let correct_wrong_image_show_time = 2000
 let infer_trial_yes = 0
 let music1 = document.querySelector(".music1")
