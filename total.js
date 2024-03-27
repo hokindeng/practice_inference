@@ -146,7 +146,6 @@ const handleKeyPress = (event) => {
 
 function key_visualization_for_inference(event){
     let current_mapping_number = query_find_current_mapping()
-    show_selected_context(current_mapping_number);
     let keyIndex = -1
     switch (event.key) {
         case 'a':
@@ -159,6 +158,7 @@ function key_visualization_for_inference(event){
             keyIndex = 3
             break
     }
+    show_selected_context(keyIndex);
     if (current_mapping_number === keyIndex) {
         show_mapping_is_correct()
         infer_trial_yes = 0; // handle an infer key press
