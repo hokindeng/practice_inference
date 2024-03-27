@@ -227,16 +227,12 @@ function key_visualization_for_mapping(event) {
 
 function store_a_mapping_trial_data(){
     data.push({
-      trail_type: 'm',
+      trial_type: 'm',
       thisTrialStartTime: trial_start_time,
       thisTrialHammerShowTime: hammer_show_time,
       thisTrialMarmotShowTime: marmot_show_time,
-      targetPositionY: target.y,
-      targetNumber: trials,
-      blockNumber: blockScores.length,
-      identifier: identifier,
-      canvasWidth: canvas.offsetWidth,
-      canvasHeight: canvas.offsetHeight
+      thisTrialKeyPressTime: pressedTime,
+      thisTrialScoreNumber: score_number,
   });
 }
 
