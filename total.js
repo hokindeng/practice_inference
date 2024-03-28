@@ -7,7 +7,7 @@ let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
 let element = document.querySelector('.context_cue');
-let each_trial_time = 3000
+let each_trial_time = 500
 let marmot_show_time = 2000
 let set_of_stimuli = 5
 let number_of_trial = set_of_stimuli * 5
@@ -96,7 +96,7 @@ async function training_mapping_1() {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
-        await delay(each_trial_time); // Wait for 5 seconds
+        await delay(each_trial_time);
         not_hit_yet = 1;
     }
 }
@@ -109,7 +109,7 @@ async function training_mapping_2() {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
-        await delay(each_trial_time); // Wait for 5 seconds
+        await delay(each_trial_time);
         not_hit_yet = 1;
     }
 }
@@ -122,7 +122,7 @@ async function training_mapping_3() {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
-        await delay(each_trial_time); // Wait for 5 seconds
+        await delay(each_trial_time);
         not_hit_yet = 1;
     }
 }
