@@ -1,4 +1,5 @@
 // script.js
+let current_key_press = -1
 let probability_of_inference_trial_occur = .5
 let correct_wrong_image_show_time = 2000
 let infer_trial_yes = 0
@@ -200,6 +201,7 @@ function key_visualization_for_mapping(event) {
             keyIndex = current_map[4]
             break
     }
+    current_key_press = keyIndex;
     if ((pressedTime - trial_start_time) < marmot_show_time && not_hit_yet) {
         keep_displaying = 1;
         not_hit_yet = 0;
@@ -231,9 +233,11 @@ function store_a_mapping_trial_data(){
       thisTrialStartTime: trial_start_time,
       thisTrialHammerShowTime: hammer_show_time,
       thisTrialMarmotShowTime: marmot_show_time,
-      thisTrialKeyPressTime: pressedTime, thisTrialCurrentMap: current_map,
+      thisTrialKeyPressTime: pressedTime,
+      thisTrialCurrentMap: current_map,
       thisTrialScoreNumber: score_number,
-
+      thisTrialStimulusNumber: trial_stimulus_number,
+      thisTrialKeyPress: current_key_press,
   });
 }
 
