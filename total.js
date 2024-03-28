@@ -167,6 +167,18 @@ function key_visualization_for_inference(event){
         show_mapping_is_wrong()
         infer_trial_yes = 0; // handle an infer key press
     }
+    store_an_inference_trial_data();
+}
+
+function store_an_inference_trial_data(){
+    data.push({
+      trial_type: 'i',
+      thisTrialStartTime: trial_start_time,
+      thisTrialKeyPressTime: pressedTime,
+      thisTrialCurrentMap: current_map,
+      thisTrialMapNumber:query_find_current_mapping(current_map),
+      thisTrialKeyPress: current_key_press,
+  });
 }
 
 function query_find_current_mapping(){
@@ -225,6 +237,7 @@ function key_visualization_for_mapping(event) {
             document.querySelector('.game' + keyIndex).innerHTML = empty
         }, 3 + hammer_show_time)
     }
+    store_a_mapping_trial_data();
 }
 
 function store_a_mapping_trial_data(){
@@ -237,6 +250,7 @@ function store_a_mapping_trial_data(){
       thisTrialCurrentMap: current_map,
       thisTrialScoreNumber: score_number,
       thisTrialStimulusNumber: trial_stimulus_number,
+      thisTrialMapNumber:query_find_current_mapping(current_map),
       thisTrialKeyPress: current_key_press,
   });
 }
