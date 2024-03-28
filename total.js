@@ -8,7 +8,7 @@ let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
 let element = document.querySelector('.context_cue');
 let each_trial_time = 3000
-let marmot_show_time = 1000
+let marmot_show_time = 2000
 let set_of_stimuli = 5
 let number_of_trial = set_of_stimuli * 5
 let trials_of_inference_block = 150
@@ -245,7 +245,6 @@ function store_a_mapping_trial_data(){
     data.push({
       trial_type: 'm',
       thisTrialStartTime: trial_start_time,
-      thisTrialHammerShowTime: hammer_show_time,
       thisTrialMarmotShowTime: marmot_show_time,
       thisTrialKeyPressTime: pressedTime,
       thisTrialCurrentMap: current_map,
