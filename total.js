@@ -1,16 +1,16 @@
 // script.js
 let current_key_press = -1
-let probability_of_inference_trial_occur = .5
-let correct_wrong_image_show_time = 2000
+let probability_of_inference_trial_occur = .3
+let correct_wrong_image_show_time = 1000
 let infer_trial_yes = 0
 let music1 = document.querySelector(".music1")
 let music2 = document.querySelector(".music2")
 let music3 = document.querySelector(".music3")
 let element = document.querySelector('.context_cue');
-let number_of_trial = 10
-let each_trial_time = 5000
-let marmot_show_time = 3000
-let set_of_stimuli = 20
+let each_trial_time = 3000
+let marmot_show_time = 1000
+let set_of_stimuli = 5
+let number_of_trial = set_of_stimuli * 5
 let trials_of_inference_block = 150
 let min_trial_number_in_a_inference_block = 6
 let max_trial_number_in_a_inference_block = 12
