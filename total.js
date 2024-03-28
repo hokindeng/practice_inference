@@ -406,7 +406,7 @@ function getCurrentMapping(i) {
     return selectedMapping;
 }
 
-function downloadArrayAsFile(array, filename) {
+async function downloadArrayAsFile(array, filename) {
     // Convert the array to a string format (e.g., JSON)
     const jsonString = JSON.stringify(array);
     // Create a Blob from the JSON string
