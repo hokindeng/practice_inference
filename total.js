@@ -77,9 +77,9 @@ function redirectToSecondPage() {
 }
 
 async function run_experiment() {
-    await training_mapping_1() // rose
-    await training_mapping_2() // blue
-    await training_mapping_3() // purple
+    //await training_mapping_1() // rose
+    //await training_mapping_2() // blue
+    //await training_mapping_3() // purple
     await entering_inference()
     await training_inference()
     await downloadArrayAsFile(data, 'data')
