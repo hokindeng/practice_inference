@@ -1,4 +1,5 @@
 // script.js
+let key_event = 'v'
 let current_key_press = -1
 let probability_of_inference_trial_occur = .3
 let correct_wrong_image_show_time = 1000
@@ -149,6 +150,7 @@ const handleKeyPress = (event) => {
 function key_visualization_for_inference(event){
     let current_mapping_number = query_find_current_mapping()
     let keyIndex = -1
+    key_event = event.key
     switch (event.key) {
         case 'a':
             keyIndex = 1
@@ -174,6 +176,7 @@ function key_visualization_for_inference(event){
 function store_an_inference_trial_data(){
     data.push({
       trial_type: 'i',
+      key_event: key_event,
       thisTrialStartTime: trial_start_time,
       thisTrialKeyPressTime: pressedTime,
       thisTrialCurrentMap: current_map,
@@ -197,6 +200,7 @@ function query_find_current_mapping(){
 function key_visualization_for_mapping(event) {
     let keyIndex = '-1'
     let keep_displaying = 0
+    key_event = event.key
     switch (event.key) {
         case 'h':
             keyIndex = current_map[0]
@@ -244,6 +248,7 @@ function key_visualization_for_mapping(event) {
 function store_a_mapping_trial_data(){
     data.push({
       trial_type: 'm',
+      key_event: key_event,
       thisTrialStartTime: trial_start_time,
       thisTrialMarmotShowTime: marmot_show_time,
       thisTrialKeyPressTime: pressedTime,
