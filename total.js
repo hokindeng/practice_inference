@@ -164,7 +164,7 @@ function key_visualization_for_inference(event){
     if (current_mapping_number === keyIndex) {
         show_mapping_is_correct()
         infer_trial_yes = 0; // handle an infer key press
-    } else {
+    } else if (keyIndex !== -1){
         show_mapping_is_wrong()
         infer_trial_yes = 0; // handle an infer key press
     }
