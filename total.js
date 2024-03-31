@@ -31,8 +31,12 @@ let show_mouse_and_hammer = `
     <img src="image/hammer.png" style="transform: translateX(-90px) translateY(-130px) scale(2) !important;" />
 </div>
 `;
+
 let inference_stimuli_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
+let mixture_sequence = generateValidInferenceSequence(number_of_inference_stimuli_mappings)
 let array_or_number_of_training_trials_in_each_inference_mapping = distributeApples(number_of_inference_stimuli_mappings,
+    trials_of_inference_block, min_trial_number_in_a_inference_block, max_trial_number_in_a_inference_block)
+let array_or_number_of_mixture_training = distributeApples(number_of_inference_stimuli_mappings,
     trials_of_inference_block, min_trial_number_in_a_inference_block, max_trial_number_in_a_inference_block)
 
 let pressedTime = ''
@@ -322,6 +326,18 @@ function context_change_into_purple(){
     }
 }
 
+function show_context(context_number) {
+    if (context_number === 1){
+        context_change_into_rose()
+    }
+    if (context_number === 2){
+        context_change_into_blue()
+    }
+    if (context_number === 3) {
+        context_change_into_purple()
+    }
+}
+
 async function entering_inference(){
     show_inference_Image()
     await delay(10000)
@@ -334,6 +350,22 @@ function context_entering_inference_block_make_null(){
         element.classList.add('context');
     } else {
         console.log('In context_entering_inference_block_make_null: failed')
+    }
+}
+
+async function mixture_training_mapping() {
+    for (let i = 0; i < mixture_sequence.length; i++) {
+        show_context(mixture_sequence[i])
+        current_map = getCurrentMapping(mixture_sequence[i])
+        let num_of_trials_in_this_block = array_or_number_of_mixture_training[i]
+        let stimuli_sequence_at_this_block = generate_stimuli_for_inference_block(num_of_trials_in_this_block)
+        for (let j = 0; j < num_of_trials_in_this_block; j++){
+            trial_start_time = new Date().getTime();
+            await one_training_trial_pilot(j, stimuli_sequence_at_this_block);
+            await delay(each_trial_time); // Wait for 5 seconds
+            not_hit_yet = 1;
+        }
+        context_entering_inference_block_make_null()
     }
 }
 
