@@ -160,7 +160,7 @@ function key_visualization_for_inference(event){
             keyIndex = 3
             break
     }
-    show_selected_context(keyIndex);
+    // show_selected_context(keyIndex);
     if (current_mapping_number === keyIndex) {
         show_mapping_is_correct()
         infer_trial_yes = 0; // handle an infer key press
