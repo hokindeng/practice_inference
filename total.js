@@ -1,5 +1,5 @@
 // script.js
-let in_inference_mapping = 0
+let in_inference_mapping = false
 let key_event = 'v'
 let current_key_press = -1
 let probability_of_inference_trial_occur = .3
@@ -385,7 +385,7 @@ function show_context(context_number) {
 async function entering_inference(){
     show_inference_Image()
     await delay(10000)
-    in_inference_mapping = 1;
+    in_inference_mapping = true;
     context_entering_inference_block_make_null()
 }
 
