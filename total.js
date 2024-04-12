@@ -258,6 +258,7 @@ function key_visualization_for_mapping(event) {
 function key_visualization_for_mapping_in_inference(event) {
     let keyIndex = '-1'
     let keep_displaying = 0
+    console.log('should not display feedback')
     key_event = event.key
     switch (event.key) {
         case 'h':
@@ -292,7 +293,6 @@ function key_visualization_for_mapping_in_inference(event) {
             document.querySelector('.game' + keyIndex).innerHTML = empty
         }, 3 + hammer_show_time)
     }
-    console.log('should not display feedback')
     store_a_mapping_trial_data();
 }
 
