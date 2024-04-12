@@ -1,4 +1,5 @@
 // script.js
+let in_inference_mapping = 0
 let key_event = 'v'
 let current_key_press = -1
 let probability_of_inference_trial_occur = .3
@@ -147,10 +148,12 @@ const handleKeyPress = (event) => {
     key_visualization_for_mapping(event)
     if (infer_trial_yes) {
         key_visualization_for_inference(event)
+    } else if (in_inference_mapping){
+        key_visualization_for_mapping_in_inference(event)
     } else {
         key_visualization_for_mapping(event)
     }
-};
+}
 
 function key_visualization_for_inference(event){
     let current_mapping_number = query_find_current_mapping()
@@ -242,6 +245,46 @@ function key_visualization_for_mapping(event) {
         music2.play()
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = render_hammer
+        }, 3)
+        setTimeout(function () {
+            document.querySelector('.game' + keyIndex).innerHTML = empty
+        }, 3 + hammer_show_time)
+    }
+    store_a_mapping_trial_data();
+}
+
+function key_visualization_for_mapping_in_inference(event) {
+    let keyIndex = '-1'
+    let keep_displaying = 0
+    key_event = event.key
+    switch (event.key) {
+        case 'h':
+            keyIndex = current_map[0]
+            break
+        case 'u':
+            keyIndex = current_map[1]
+            break
+        case 'i':
+            keyIndex = current_map[2]
+            break
+        case 'l':
+            keyIndex = current_map[3]
+            break
+        case 'b':
+            keyIndex = current_map[4]
+            break
+    }
+    current_key_press = keyIndex;
+    if ((pressedTime - trial_start_time) < marmot_show_time && not_hit_yet) {
+        keep_displaying = 1;
+        not_hit_yet = 0;
+    }
+    if (keyIndex === trial_stimulus_number && keep_displaying) {
+        score_number++
+        score.innerHTML = String(score_number)
+        music3.play()
+        setTimeout(function () {
+            document.querySelector('.game' + keyIndex).innerHTML = show_mouse_and_hammer
         }, 3)
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = empty
@@ -342,6 +385,7 @@ function show_context(context_number) {
 async function entering_inference(){
     show_inference_Image()
     await delay(10000)
+    in_inference_mapping = 1;
     context_entering_inference_block_make_null()
 }
 
