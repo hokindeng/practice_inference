@@ -146,6 +146,8 @@ const handleKeyPress = (event) => {
     pressedTime = new Date().getTime();
     console.log('In handleKeyPress, pressedTime', pressedTime)
     key_visualization_for_mapping(event)
+    console.log('infer_trial_yes', infer_trial_yes)
+    console.log('in_inference_mapping', in_inference_mapping)
     if (infer_trial_yes) {
         key_visualization_for_inference(event)
     } else if (in_inference_mapping){
@@ -290,6 +292,7 @@ function key_visualization_for_mapping_in_inference(event) {
             document.querySelector('.game' + keyIndex).innerHTML = empty
         }, 3 + hammer_show_time)
     }
+    console.log('should not display feedback')
     store_a_mapping_trial_data();
 }
 
