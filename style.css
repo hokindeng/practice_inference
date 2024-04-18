@@ -281,6 +281,7 @@ img {
     padding: 10px 300px;
     color: white;
     background-color: rgba(0, 0, 0, 0);
+    z-index: 1000; /* High value to ensure it's on top */
 }
 
 .context_cue::before,
@@ -291,15 +292,17 @@ img {
     width: 100px; /* adjust size as needed */
     height: 50px; /* adjust size as needed */
     background-color: rgba(0, 0, 0, 0.5); /* adjust color/opacity as needed */
+    z-index: 1001; /* Ensure pseudo-elements are also on top */
 }
 
 .context_cue::before {
-    top: +100px; /* adjust position as needed */
+    top: -60px; /* adjust position as needed */
     left: -50px; /* adjust position as needed */
 }
 
 .context_cue::after {
-    top: +100px; /* adjust position as needed */
+    top: -60px; /* adjust position as needed */
     right: -50px; /* adjust position as needed */
 }
+
 
