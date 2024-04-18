@@ -294,12 +294,12 @@ img {
 }
 
 .context_cue::before {
-    top: -100px; /* adjust position as needed */
+    top: +100px; /* adjust position as needed */
     left: -50px; /* adjust position as needed */
 }
 
 .context_cue::after {
-    top: -100px; /* adjust position as needed */
+    top: +100px; /* adjust position as needed */
     right: -50px; /* adjust position as needed */
 }
 
