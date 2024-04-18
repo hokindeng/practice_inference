@@ -397,12 +397,12 @@ img {
 }
 
 .context_cue_rose::before {
-    top: 240px; /* adjust position as needed */
+    top: 230px; /* adjust position as needed */
     left: -70px; /* adjust position as needed */
 }
 
 .context_cue_rose::after {
-    top: 240px; /* adjust position as needed */
+    top: 230px; /* adjust position as needed */
     right: -70px; /* adjust position as needed */
 }
 
