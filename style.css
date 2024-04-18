@@ -99,6 +99,37 @@ img {
     background-color: rgba(0, 0, 0, 0); /* Change this as needed */
 }
 
+.context_cue {
+    position: absolute;
+    left: 175px;
+    top: 5px;
+    border: 4px solid white;
+    padding: 10px 300px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.context_cue::before,
+.context_cue::after {
+    content: "";
+    position: absolute;
+    border: 4px solid white;
+    width: 100px; /* adjust size as needed */
+    height: 50px; /* adjust size as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* adjust color/opacity as needed */
+}
+
+.context_cue::before {
+    top: -60px; /* adjust position as needed */
+    left: -50px; /* adjust position as needed */
+}
+
+.context_cue::after {
+    top: -60px; /* adjust position as needed */
+    right: -50px; /* adjust position as needed */
+}
+
+
 .context_cue_rose {
     position: absolute !important;
     left: 175px;
