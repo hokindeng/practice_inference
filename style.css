@@ -231,7 +231,7 @@ img {
 }
 
 /* Try to edit the box for salient stimuli*/
-
+/*
 .context_cue {
     position: absolute !important;
     left: 175px;
@@ -240,8 +240,8 @@ img {
     padding: 10px 300px;
     color: white;
     background-color: rgba(0, 0, 0, 0); /* Change this as needed */
-}
-
+/*}
+/*
 .context_cue_rose {
     position: absolute !important;
     left: 175px;
@@ -250,7 +250,7 @@ img {
     padding: 10px 300px;
     color: white;
     background-color: rgba(255, 0, 127, .7); /* Change this as needed */
-}
+/*}
 
 .context_cue_blue {
     position: absolute !important;
@@ -260,7 +260,7 @@ img {
     padding: 10px 300px;
     color: white;
     background-color: rgba(107, 207, 246, .7); /* Change this as needed */
-}
+/*}
 
 .context_cue_purple {
     position: absolute !important;
@@ -270,4 +270,5 @@ img {
     padding: 10px 300px;
     color: white;
     background-color: rgba(136, 88, 243, .7); /* Change this as needed */
-}
+/*}
+
