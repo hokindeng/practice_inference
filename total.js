@@ -97,7 +97,7 @@ function delay(time) {
 }
 
 async function training_mapping_1() {
-    context_change_into_purple()
+    context_change_into_rose()
     let stimuli = generate_stimuli(set_of_stimuli);
     for (let i = 0; i < number_of_trial; i++) {
         trial_start_time = new Date().getTime();
@@ -356,7 +356,7 @@ function context_change_into_rose(){
 
 function context_change_into_blue(){
     if (element) {
-        element.classList.remove('context_cue');
+        element.classList.remove('context_cue_rose');
         element.classList.add('context_cue_blue');
     } else {
         console.log('In context_change_into_blue: Failed')
@@ -365,7 +365,7 @@ function context_change_into_blue(){
 
 function context_change_into_purple(){
     if (element) {
-        element.classList.remove('context_cue');
+        element.classList.remove('context_cue_blue');
         element.classList.add('context_cue_purple');
     } else {
         console.log('In context_change_into_purple: Failed')
