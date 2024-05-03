@@ -358,7 +358,7 @@ function context_change_into_rose(){
 function context_change_into_blue(){
     context_entering_inference_block_make_null();
     if (element) {
-        element.classList.remove('context_cue_rose');
+        element.classList.remove('context_cue');
         element.classList.add('context_cue_blue');
     } else {
         console.log('In context_change_into_blue: Failed')
@@ -368,7 +368,7 @@ function context_change_into_blue(){
 function context_change_into_purple(){
     context_entering_inference_block_make_null();
     if (element) {
-        element.classList.remove('context_cue_blue');
+        element.classList.remove('context_cue');
         element.classList.add('context_cue_purple');
     } else {
         console.log('In context_change_into_purple: Failed')
