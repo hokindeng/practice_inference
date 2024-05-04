@@ -114,6 +114,7 @@ async function training_mapping_1() {
 
 async function training_mapping_2() {
     current_map = mapping_2
+    criterion = [0, 0, 0, 0, 0]
     context_change_into_blue()
     let stimuli = generate_stimuli(set_of_stimuli);
     let i = 0
@@ -129,6 +130,7 @@ async function training_mapping_2() {
 
 async function training_mapping_3() {
     current_map = mapping_3
+    criterion = [0, 0, 0, 0, 0]
     context_change_into_purple()
     let stimuli = generate_stimuli(set_of_stimuli);
     let i = 0
@@ -251,6 +253,7 @@ function key_visualization_for_mapping(event) {
     }
     if (keyIndex === trial_stimulus_number && keep_displaying) {
         score_number++
+        criterion[trial_stimulus_number]++
         score.innerHTML = String(score_number)
         music3.play()
         setTimeout(function () {
@@ -261,6 +264,7 @@ function key_visualization_for_mapping(event) {
         }, 3 + hammer_show_time)
     } else if (keyIndex !== '-1' && keep_displaying) {
         music2.play()
+        criterion[trial_stimulus_number] = 0
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = render_hammer
         }, 3)
