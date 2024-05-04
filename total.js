@@ -12,7 +12,7 @@ let element = document.querySelector('.context_cue');
 let each_trial_time = 500
 let marmot_show_time = 1500
 let set_of_stimuli = 20
-let number_of_trial = set_of_stimuli * 1
+let number_of_trial = set_of_stimuli * 20
 let trials_of_inference_block = 150
 let min_trial_number_in_a_inference_block = 6
 let max_trial_number_in_a_inference_block = 12
@@ -43,6 +43,7 @@ let array_or_number_of_mixture_training = distributeApples(number_of_inference_s
 let pressedTime = ''
 let trial_stimulus_number = '-1'
 let start_game = document.querySelector(".start_game")
+let criterion = [0, 0, 0, 0, 0]
 let mapping_1 = [0, 1, 2, 3, 4]
 let mapping_2 = [0, 1, 2, 3, 4]
 let mapping_3 = [0, 1, 2, 3, 4]
@@ -100,12 +101,14 @@ function delay(time) {
 async function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli(set_of_stimuli);
-    for (let i = 0; i < number_of_trial; i++) {
+    let i = 0;
+    while (i < number_of_trial && not_meet_criterion()) {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time);
         not_hit_yet = 1;
+        i = i + 1
     }
 }
 
@@ -113,12 +116,14 @@ async function training_mapping_2() {
     current_map = mapping_2
     context_change_into_blue()
     let stimuli = generate_stimuli(set_of_stimuli);
-    for (let i = 0; i < number_of_trial; i++) {
+    let i = 0
+    while (i < number_of_trial && not_meet_criterion()) {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time);
         not_hit_yet = 1;
+        i = i + 1
     }
 }
 
@@ -126,13 +131,24 @@ async function training_mapping_3() {
     current_map = mapping_3
     context_change_into_purple()
     let stimuli = generate_stimuli(set_of_stimuli);
-    for (let i = 0; i < number_of_trial; i++) {
+    let i = 0
+    while (i < number_of_trial && not_meet_criterion()) {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         trial.innerHTML = String(i + 1)
         await delay(each_trial_time);
         not_hit_yet = 1;
+        i = i + 1
     }
+}
+
+function not_meet_criterion() {
+    for (let i = 0; i < criterion.length; i++) {
+        if (criterion[i] <= 5) {
+            return true;
+        }
+    }
+    return false;
 }
 
 async function one_training_trial_pilot(tri, sti) {
