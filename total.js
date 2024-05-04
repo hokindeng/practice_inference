@@ -59,7 +59,7 @@ let trial = document.querySelector(".trial")
 let score_number = 0
 let trial_start_time = 0;
 score.innerHTML = String(score_number)
-trial.innerHTML = String(0)
+// trial.innerHTML = String(0)
 
 function create_all_mappings(){
     mapping_1 = shuffleArray(mapping_1)
@@ -87,7 +87,7 @@ async function run_experiment() {
     await training_mapping_1() // rose
     await training_mapping_2() // blue
     await training_mapping_3() // purple
-    trial.innerHTML = 'Mix'
+    //trial.innerHTML = 'Mix'
     await mixture_training_mapping()
     await entering_inference()
     await training_inference()
@@ -105,7 +105,7 @@ async function training_mapping_1() {
     while (i < number_of_trial && not_meet_criterion()) {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
-        trial.innerHTML = String(i + 1)
+        // trial.innerHTML = String(i + 1)
         await delay(each_trial_time);
         not_hit_yet = 1;
         i = i + 1
@@ -121,7 +121,7 @@ async function training_mapping_2() {
     while (i < number_of_trial && not_meet_criterion()) {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
-        trial.innerHTML = String(i + 1)
+        // trial.innerHTML = String(i + 1)
         await delay(each_trial_time);
         not_hit_yet = 1;
         i = i + 1
@@ -137,7 +137,7 @@ async function training_mapping_3() {
     while (i < number_of_trial && not_meet_criterion()) {
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
-        trial.innerHTML = String(i + 1)
+        // trial.innerHTML = String(i + 1)
         await delay(each_trial_time);
         not_hit_yet = 1;
         i = i + 1
@@ -452,7 +452,7 @@ async function training_inference() {
             console.log('In training_inference, used mapping in this trial' + current_map)
             trial_start_time = new Date().getTime();
             await one_training_trial_pilot(j, stimuli_sequence_at_this_block);
-            trial.innerHTML = String(inference_trial_display_number)
+            // trial.innerHTML = String(inference_trial_display_number)
             inference_trial_display_number = inference_trial_display_number + 1;
             await delay(each_trial_time); // Wait for 5 seconds
             not_hit_yet = 1;
