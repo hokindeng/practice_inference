@@ -330,13 +330,13 @@ img {
 }
 
 .context_cue_rose::before {
-    top: 230px; /* adjust position as needed */
-    left: -70px; /* adjust position as needed */
+    top: 230px;
+    left: -70px;
 }
 
 .context_cue_rose::after {
-    top: 230px; /* adjust position as needed */
-    right: -70px; /* adjust position as needed */
+    top: 230px;
+    right: -70px;
 }
 
 /* new blue box */
