@@ -271,7 +271,7 @@ function key_visualization_for_mapping(event) {
         }, 3 + hammer_show_time)
     } else if (keyIndex !== '-1' && keep_displaying) {
         music2.play()
-        criterion[trial_stimulus_number] = 0
+        //criterion[trial_stimulus_number] = 0
         setTimeout(function () {
             document.querySelector('.game' + keyIndex).innerHTML = render_hammer
         }, 3)
