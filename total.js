@@ -145,6 +145,7 @@ async function training_mapping_3() {
 }
 
 function not_meet_criterion() {
+    console.log(criterion)
     for (let i = 0; i < criterion.length; i++) {
         if (criterion[i] <= 5) {
             return true;
