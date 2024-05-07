@@ -103,6 +103,7 @@ async function training_mapping_1() {
     let stimuli = generate_stimuli(set_of_stimuli);
     let i = 0;
     while (i < number_of_trial && not_meet_criterion()) {
+        console.log('Trial Number', i)
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         // trial.innerHTML = String(i + 1)
@@ -119,6 +120,7 @@ async function training_mapping_2() {
     let stimuli = generate_stimuli(set_of_stimuli);
     let i = 0
     while (i < number_of_trial && not_meet_criterion()) {
+        console.log('Trial Number', i)
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         // trial.innerHTML = String(i + 1)
@@ -135,6 +137,7 @@ async function training_mapping_3() {
     let stimuli = generate_stimuli(set_of_stimuli);
     let i = 0
     while (i < number_of_trial && not_meet_criterion()) {
+        console.log('Trial Number', i)
         trial_start_time = new Date().getTime();
         await one_training_trial_pilot(i, stimuli);
         // trial.innerHTML = String(i + 1)
