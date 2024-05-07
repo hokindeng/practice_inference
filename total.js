@@ -11,8 +11,8 @@ let music3 = document.querySelector(".music3")
 let element = document.querySelector('.context_cue');
 let each_trial_time = 500
 let marmot_show_time = 1500
-let set_of_stimuli = 20
-let number_of_trial = set_of_stimuli * 15
+let set_of_stimuli = 200
+let number_of_trial = set_of_stimuli * 5
 let trials_of_inference_block = 150
 let min_trial_number_in_a_inference_block = 6
 let max_trial_number_in_a_inference_block = 12
@@ -102,6 +102,7 @@ async function training_mapping_1() {
     context_change_into_rose()
     let stimuli = generate_stimuli(set_of_stimuli);
     let i = 0;
+    console.log('Stimuli Set', stimuli)
     while (i < number_of_trial && not_meet_criterion()) {
         console.log('Trial Number', i)
         trial_start_time = new Date().getTime();
@@ -118,6 +119,7 @@ async function training_mapping_2() {
     criterion = [0, 0, 0, 0, 0]
     context_change_into_blue()
     let stimuli = generate_stimuli(set_of_stimuli);
+    console.log('Stimuli Set', stimuli)
     let i = 0
     while (i < number_of_trial && not_meet_criterion()) {
         console.log('Trial Number', i)
@@ -136,6 +138,7 @@ async function training_mapping_3() {
     context_change_into_purple()
     let stimuli = generate_stimuli(set_of_stimuli);
     let i = 0
+    console.log('Stimuli Set', stimuli)
     while (i < number_of_trial && not_meet_criterion()) {
         console.log('Trial Number', i)
         trial_start_time = new Date().getTime();
